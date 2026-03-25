@@ -71,7 +71,7 @@ export default function App() {
         {/* Hero — justify-center para centrado vertical */}
         <section className="flex flex-col items-center justify-center text-center px-6 flex-1">
           <h1
-            className="text-5xl sm:text-7xl md:text-8xl leading-[0.95] max-w-7xl font-normal animate-fade-rise"
+            className="text-3xl sm:text-5xl md:text-6xl leading-[1.05] max-w-4xl font-normal animate-fade-rise"
             style={{
               fontFamily: "'Instrument Serif', serif",
               letterSpacing: '-2.46px',
