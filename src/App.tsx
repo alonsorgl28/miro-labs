@@ -28,28 +28,28 @@ export default function App() {
       {/* ── Content layer ── */}
       <div className="relative z-10 flex flex-col min-h-screen">
 
-        {/* Navigation */}
-        <nav className="flex flex-row justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full">
-          {/* Logo — subido de text-3xl a ~36px */}
+        {/* Navigation — más compacto, max-w-5xl */}
+        <nav className="flex flex-row justify-between items-center px-6 py-4 max-w-5xl mx-auto w-full">
+          {/* Logo — 26px */}
           <span
             className="tracking-tight text-white"
-            style={{ fontFamily: "'Instrument Serif', serif", fontSize: '36px' }}
+            style={{ fontFamily: "'Instrument Serif', serif", fontSize: '26px' }}
           >
-            MIRÓ Labs<sup className="text-xs">®</sup>
+            MIRÓ Labs<sup style={{ fontSize: '9px' }}>®</sup>
           </span>
 
-          {/* Nav links con separadores */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Nav links — 13px */}
+          <div className="hidden md:flex items-center gap-2.5">
             {['Inicio', 'Estudio', 'Nosotros', 'Diario', 'Contacto'].map((link, i) => (
-              <div key={link} className="flex items-center gap-3">
+              <div key={link} className="flex items-center gap-2.5">
                 {i !== 0 && (
-                  <span style={{ color: 'hsl(240,4%,50%)', fontSize: '10px' }}>•</span>
+                  <span style={{ color: 'hsl(240,4%,50%)', fontSize: '9px' }}>•</span>
                 )}
                 <a
                   href="#"
                   className="transition-colors"
                   style={{
-                    fontSize: '15px',
+                    fontSize: '13px',
                     color: i === 0 ? 'hsl(0,0%,100%)' : 'hsl(240,4%,66%)',
                   }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'hsl(0,0%,100%)')}
@@ -64,21 +64,25 @@ export default function App() {
             ))}
           </div>
 
-          {/* CTA nav */}
+          {/* CTA nav — más pequeño */}
           <button
-            className="liquid-glass rounded-full px-6 py-2.5 text-sm text-white cursor-pointer transition-transform hover:scale-[1.03]"
+            className="liquid-glass rounded-full px-5 py-2 text-white cursor-pointer transition-transform hover:scale-[1.03]"
+            style={{ fontSize: '13px' }}
           >
             Comenzar
           </button>
         </nav>
 
-        {/* Hero — posicionado en tercio superior-medio, escena visible abajo */}
-        <section className="flex flex-col items-center text-center px-6 pt-[22vh] pb-0">
+        {/* Hero */}
+        <section className="flex flex-col items-center text-center px-6 pt-[18vh] pb-0">
           <h1
-            className="text-3xl sm:text-5xl md:text-6xl leading-[1.05] max-w-4xl font-normal animate-fade-rise"
+            className="font-normal animate-fade-rise"
             style={{
               fontFamily: "'Instrument Serif', serif",
-              letterSpacing: '-2.46px',
+              fontSize: 'clamp(28px, 3.5vw, 48px)',
+              lineHeight: '1.1',
+              letterSpacing: '-1.2px',
+              maxWidth: '720px',
               color: 'hsl(0,0%,100%)',
             }}
           >
@@ -93,8 +97,14 @@ export default function App() {
           </h1>
 
           <p
-            className="text-base sm:text-lg max-w-2xl mt-8 leading-relaxed animate-fade-rise-delay"
-            style={{ color: 'hsl(240,4%,66%)' }}
+            className="animate-fade-rise-delay"
+            style={{
+              fontSize: '14px',
+              maxWidth: '480px',
+              marginTop: '24px',
+              lineHeight: '1.7',
+              color: 'hsl(240,4%,66%)',
+            }}
           >
             Somos un laboratorio creativo-tecnológico — diseñadores que programan
             y constructores que piensan con estética. Traducimos sistemas complejos
@@ -102,7 +112,8 @@ export default function App() {
           </p>
 
           <button
-            className="liquid-glass rounded-full px-14 py-5 text-base text-white mt-12 cursor-pointer transition-transform hover:scale-[1.03] animate-fade-rise-delay-2"
+            className="liquid-glass rounded-full text-white cursor-pointer transition-transform hover:scale-[1.03] animate-fade-rise-delay-2"
+            style={{ padding: '12px 48px', fontSize: '14px', marginTop: '36px' }}
           >
             Comenzar
           </button>
