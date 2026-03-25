@@ -38,25 +38,29 @@ export default function App() {
             MIRÓ Labs<sup className="text-xs">®</sup>
           </span>
 
-          {/* Nav links — subido de text-sm a 15px */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Nav links con separadores */}
+          <div className="hidden md:flex items-center gap-3">
             {['Inicio', 'Estudio', 'Nosotros', 'Diario', 'Contacto'].map((link, i) => (
-              <a
-                key={link}
-                href="#"
-                className="transition-colors"
-                style={{
-                  fontSize: '15px',
-                  color: i === 0 ? 'hsl(0,0%,100%)' : 'hsl(240,4%,66%)',
-                }}
-                onMouseEnter={e => (e.currentTarget.style.color = 'hsl(0,0%,100%)')}
-                onMouseLeave={e =>
-                  (e.currentTarget.style.color =
-                    i === 0 ? 'hsl(0,0%,100%)' : 'hsl(240,4%,66%)')
-                }
-              >
-                {link}
-              </a>
+              <div key={link} className="flex items-center gap-3">
+                {i !== 0 && (
+                  <span style={{ color: 'hsl(240,4%,50%)', fontSize: '10px' }}>•</span>
+                )}
+                <a
+                  href="#"
+                  className="transition-colors"
+                  style={{
+                    fontSize: '15px',
+                    color: i === 0 ? 'hsl(0,0%,100%)' : 'hsl(240,4%,66%)',
+                  }}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'hsl(0,0%,100%)')}
+                  onMouseLeave={e =>
+                    (e.currentTarget.style.color =
+                      i === 0 ? 'hsl(0,0%,100%)' : 'hsl(240,4%,66%)')
+                  }
+                >
+                  {link}
+                </a>
+              </div>
             ))}
           </div>
 
@@ -68,8 +72,8 @@ export default function App() {
           </button>
         </nav>
 
-        {/* Hero — justify-center para centrado vertical */}
-        <section className="flex flex-col items-center justify-center text-center px-6 flex-1">
+        {/* Hero — posicionado en tercio superior-medio, escena visible abajo */}
+        <section className="flex flex-col items-center text-center px-6 pt-[22vh] pb-0">
           <h1
             className="text-3xl sm:text-5xl md:text-6xl leading-[1.05] max-w-4xl font-normal animate-fade-rise"
             style={{
