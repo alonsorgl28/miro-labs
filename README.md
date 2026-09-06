@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# MIRÓ Labs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal lab by Alonso Rivera — the source of <https://miro-labs.vercel.app>.
 
-Currently, two official plugins are available:
+Static HTML, CSS and JavaScript. No framework, no build step, no runtime
+dependency: the page makes no network request for fonts or scripts beyond its
+own two files.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Layout
 
-## React Compiler
+- `index.html` — the home page: a first-person introduction and a numbered
+  index of eight projects that previews on hover and opens in place.
+- `about.html` — the CV told as a story.
+- `assets/miro-index.css` — the whole visual system.
+- `assets/miro-index.js` — the opening screen, the index behaviour, the
+  paper/black switch and the grid overlay.
+- `assets/i18n.js` — English and Spanish.
+- `assets/miro-electronics-logo.png` — the original MIRÓ Electronics
+  lettering, unmodified.
+- `tools/` — the Python generators that emit the two HTML files and draw the
+  LABS lettering.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## The grid
 
-## Expanding the ESLint configuration
+Twelve columns with a constant gutter, and one vertical unit of 24px that every
+rhythm is a multiple of: an index row is exactly two units, the footer four.
+Three type sizes and nothing else — 11px, 14px, and the band.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Press **G** on any page to see it.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## The lettering
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The MIRÓ mark is the original Electronics artwork, used unchanged and rendered
+black through a CSS filter. Its construction was measured off the file: three
+bands of 10px separated by 7px gaps, a 44px stroke, a 152px cap height, flat
+terminals and concentric bands through every curve.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+`tools/build_labs_lettering.py` reconstructs LABS in that same system, by
+stroking one skeleton three times inside an SVG mask — 44 ink, 24 paper,
+10 ink. It is a reconstruction, not the original letters, and it is kept for
+large-format use: at navigation sizes the bands fall below two pixels and the
+lettering stops working, so only the mark is used small.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Running it
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Any static server will do:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    python3 -m http.server 8765
+
+## Deploying
+
+    vercel --prod
+
+`.vercelignore` keeps working files out of the deploy.

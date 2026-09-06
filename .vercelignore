@@ -1,0 +1,26 @@
+# Working files that must never be published.
+linkedin-profile-draft-alonso-2026.md
+linkedin-profile-draft-alonso-2026-es.md
+GUIDANCE.md
+wordmark-preview.html
+
+# Retired assets: the current page loads none of these (22MB of video).
+*.mp4
+assets/hero-intro.js
+assets/site.css
+assets/fonts.css
+assets/miro-intro.css
+assets/miro-intro.js
+assets/miro-intro-config.js
+assets/custom-cursor.js
+assets/site-meta-panel.js
+assets/mobile-top-nav.js
+assets/ouro-site-bootstrap.js
+assets/hcard-atlas-morph.js
+assets/hcard-nota-morph.js
+assets/overture-ripple.js
+assets/red-lullaby.js
+assets/second-lullaby.js
+assets/figma-capture-layout.js
+assets/vendor/
+assets/awards/

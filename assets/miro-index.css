@@ -1,0 +1,690 @@
+/* MIRÓ Labs — index direction.
+   System monospace, no webfont, no network. Grid discipline after
+   Müller-Brockmann: twelve columns, one 24px vertical unit, three type sizes.
+   Press G to see the grid. */
+
+:root {
+  color-scheme: light;
+  --font: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --paper: #ffffff;
+  --ink: #0b0b0b;
+  --muted: #4a4a4a;
+  --faint: #757575;
+  --rule: #e6e6e6;
+  --accent: #fd3200;
+  --accent-ink: #d92b00;
+  --focus: #0b0b0b;
+  --mark-filter: brightness(0) saturate(100%);
+
+  /* the grid */
+  --u: 24px;                    /* vertical unit = one line */
+  --margin: clamp(20px, 3.2vw, 48px);
+  --gap: clamp(14px, 1.7vw, 26px);
+  --cols: 12;
+
+  /* three sizes, nothing else */
+  --t-micro: 11px;
+  --t-body: 14px;
+  --t-band: clamp(22px, 3.6vw, 38px);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0b0b0b;
+  --ink: #f2f2f2;
+  --muted: #b0b0b0;
+  --faint: #8a8a8a;
+  --rule: #262626;
+  --accent: #fd3200;
+  --accent-ink: #ff5c2e;
+  --focus: #f2f2f2;
+  --mark-filter: brightness(0) invert(1);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: var(--t-body);
+  line-height: var(--u);
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.45s var(--ease), color 0.45s var(--ease);
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+p { margin: 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible { outline: 1.5px solid var(--focus); outline-offset: 4px; }
+
+.skip {
+  position: absolute;
+  left: var(--margin);
+  top: var(--u);
+  z-index: 30;
+  padding: 10px var(--gap);
+  line-height: var(--u);
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: var(--t-micro);
+  transform: translateY(-300%);
+}
+.skip:focus { transform: none; }
+
+/* ---------- the grid ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  column-gap: var(--gap);
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  display: none;
+  padding: 0 var(--margin);
+}
+html.show-grid .grid-overlay { display: block; }
+.grid-overlay__cols {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  column-gap: var(--gap);
+}
+.grid-overlay__cols span { background: rgba(253, 50, 0, 0.07); }
+.grid-overlay__lines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(253, 50, 0, 0.16) 0 1px,
+    transparent 1px var(--u)
+  );
+}
+.grid-hint {
+  position: fixed;
+  left: var(--margin);
+  bottom: var(--u);
+  z-index: 41;
+  font-size: var(--t-micro);
+  color: var(--accent-ink);
+  display: none;
+}
+html.show-grid .grid-hint { display: block; }
+
+
+/* ---------- opening ---------- */
+/* Hidden unless JS opts in, so the page is never blocked without scripts. */
+
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  place-items: center;
+  background: var(--paper);
+}
+html.opening-on .opening { display: grid; }
+html.opening-on { overflow: hidden; }
+html.opening-done .opening {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease);
+}
+
+.opening__lockup { display: inline-flex; align-items: center; }
+:root { --open-h: clamp(46px, 9vw, 104px); }
+
+/* The caret walks with the reveal: both run on the same steps and duration,
+   so the block always sits at the edge of the drawn lettering. */
+.opening__reveal { position: relative; display: inline-block; }
+
+/* Only the mark is drawn here. LABS is display lettering and it does not hold
+   together small, so the wordmark stays out of the opening entirely. */
+.opening__mark {
+  display: block;
+  height: var(--open-h);
+  width: auto;
+  filter: var(--mark-filter);
+  clip-path: inset(0 100% 0 0);
+}
+html.opening-on .opening__mark { animation: draw 1.15s steps(24, end) 0.25s forwards; }
+
+.opening__caret {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 10px;
+  width: clamp(9px, 1.6vw, 18px);
+  height: var(--open-h);
+  background: var(--ink);
+  animation: blink 0.62s steps(1, end) infinite;
+}
+html.opening-on .opening__caret {
+  animation: walk 1.15s steps(24, end) 0.25s forwards,
+             blink 0.62s steps(1, end) infinite,
+             caret-out 0.28s linear 1.42s forwards;
+}
+html.opening-done .opening__caret { animation: none; opacity: 0; }
+
+/* When the lettering finishes, the caret gives way to the mark's dot — the
+   same orange dot that closes the first line on the home page. */
+.opening__dot {
+  position: absolute;
+  left: 100%;
+  top: 58%;                     /* the cap band's centre inside the viewBox */
+  margin-left: 12px;
+  width: clamp(11px, 1.9vw, 21px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  transform: translateY(-50%) scale(0.2);
+}
+html.opening-on .opening__dot {
+  animation: dot-in 0.42s var(--ease) 1.5s forwards,
+             dot-pulse 1.7s ease-in-out 1.92s infinite;
+}
+
+@keyframes draw { to { clip-path: inset(0 0 0 0); } }
+@keyframes walk { to { left: 100%; } }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes caret-out { to { opacity: 0; } }
+@keyframes dot-in { to { opacity: 1; transform: translateY(-50%) scale(1); } }
+@keyframes dot-pulse {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(0.68); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.opening-on .opening__mark { animation: none; clip-path: inset(0 0 0 0); }
+  html.opening-on .opening__caret { animation: none; opacity: 0; }
+  html.opening-on .opening__dot { animation: none; opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+/* ---------- shell ---------- */
+
+.shell {
+  /* JS rounds --shell-min down to a whole number of units so that everything
+     below the fold stays on the same 24px rhythm. */
+  min-height: 100svh;
+  min-height: 100vh;
+  min-height: var(--shell-min, 100vh);
+  display: flex;
+  flex-direction: column;
+  padding: var(--u) var(--margin);
+  row-gap: calc(var(--u) * 3);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  align-items: center;
+  min-height: calc(var(--u) * 2);
+}
+
+/* The mark's viewBox bottom is the lettering baseline, and a replaced element
+   takes its margin-box bottom as its baseline, so LABS sits on the same line. */
+.brand {
+  grid-column: 1 / 7;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  justify-self: start;
+  padding: 7px 0;
+  margin: -7px 0;
+}
+
+.brand__mark {
+  display: block;
+  width: auto;
+  /* The mark alone, at a size where the three bands still separate. The full
+     lockup with LABS is reserved for the opening, where it runs large. */
+  height: 38px;
+  filter: var(--mark-filter);
+  transition: opacity 0.35s var(--ease);
+}
+.brand:hover .brand__mark { opacity: 0.55; }
+
+
+.controls {
+  grid-column: 8 / 13;
+  justify-self: end;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) - 4px);
+}
+
+.switch { display: inline-flex; gap: 0.7em; }
+
+.switch__btn,
+.theme-btn {
+  appearance: none;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: var(--t-micro);
+  line-height: var(--u);
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  cursor: pointer;
+  padding: 10px 6px;
+  margin: -10px -6px;
+  transition: color 0.25s var(--ease);
+}
+.switch__btn:hover,
+.theme-btn:hover { color: var(--ink); }
+.switch__btn[aria-pressed="true"] { color: var(--ink); }
+
+.theme-btn { display: inline-flex; align-items: center; gap: 0.6em; }
+.theme-btn__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  transition: transform 0.45s var(--ease);
+}
+html[data-theme="dark"] .theme-btn__dot { transform: rotate(180deg); }
+
+.theme-btn__label { display: none; }
+html[data-theme="light"] .theme-btn__label--light,
+html[data-theme="dark"] .theme-btn__label--dark { display: inline; }
+
+/* ---------- home ---------- */
+
+.home { flex: 1; align-items: start; }
+
+.stage {
+  grid-column: 1 / 6;
+  display: grid;
+  grid-template-areas: "layer";
+  align-self: start;
+}
+.stage > * { grid-area: layer; align-self: start; }
+
+/* The two layers share one grid cell, so the outgoing one has to be gone
+   before the incoming one arrives, or the texts overlap mid-fade. */
+.layer {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s var(--ease), visibility 0s linear 0.18s;
+}
+.layer.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.22s var(--ease) 0.18s, visibility 0s linear 0.18s;
+}
+
+/* ---------- intro ---------- */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--u);
+  max-width: 48ch;
+  color: var(--muted);
+}
+.intro p:first-child { color: var(--ink); }
+
+.intro__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-left: 0.6em;
+  vertical-align: 0.06em;
+}
+
+.intro a {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.25s var(--ease);
+}
+.intro a:hover { opacity: 0.6; }
+
+.intro__about a {
+  display: inline-block;
+  font-size: var(--t-body);
+  padding: 10px 0;
+  margin: -10px 0;   /* 44px tap area, still one unit in the flow */
+}
+
+.intro__icons {
+  display: flex;
+  align-items: center;
+  gap: var(--u);
+  height: calc(var(--u) * 2);
+}
+.intro__icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: -10px 0 -10px -10px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+.intro__icons a:hover { color: var(--accent-ink); opacity: 1; }
+.intro__icons svg { width: 20px; height: 20px; display: block; }
+
+/* ---------- preview ---------- */
+
+.preview { display: flex; flex-direction: column; gap: var(--u); }
+.preview__mark {
+  width: calc(var(--u) * 5);
+  height: calc(var(--u) * 5);
+  color: var(--ink);
+}
+.preview__mark svg,
+.entry__detail-mark svg { width: 100%; height: 100%; display: block; }
+
+.preview__name { color: var(--ink); }
+.preview__tag {
+  display: block;
+  font-size: var(--t-micro);
+  line-height: var(--u);
+  letter-spacing: 0.08em;
+  color: var(--accent-ink);
+}
+.preview__desc { color: var(--muted); }
+
+/* ---------- index ---------- */
+
+.index-col { grid-column: 7 / 13; align-self: start; }
+
+.index-col__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: var(--t-micro);
+  line-height: var(--u);
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+
+/* Drawn as an inset shadow, not a border, so the rule costs no height and the
+   block measures a whole number of units: 8 rows x 48px = 384. */
+.index { box-shadow: inset 0 1px 0 var(--rule); }
+
+.entry { border-bottom: 1px solid var(--rule); transition: border-color 0.25s var(--ease); }
+.entry[open], .entry.is-hot { border-bottom-color: var(--ink); }
+
+/* one row = two units */
+.entry__summary {
+  display: grid;
+  grid-template-columns: calc(var(--u) * 2) minmax(0, 1fr);
+  align-items: baseline;
+  padding: calc(var(--u) / 2 - 1px) 0 calc(var(--u) / 2);
+  cursor: pointer;
+  list-style: none;
+}
+.entry__summary::-webkit-details-marker { display: none; }
+.entry__summary::marker { content: ""; }
+
+.entry__num {
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.25s var(--ease);
+}
+
+h3.entry__name {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: 0.02em;
+  min-width: 0;
+  transition: letter-spacing 0.4s var(--ease), color 0.25s var(--ease);
+}
+
+.entry__summary:hover .entry__name,
+.entry.is-hot .entry__name,
+.entry[open] .entry__name { color: var(--accent-ink); }
+.entry__summary:hover .entry__num,
+.entry.is-hot .entry__num,
+.entry[open] .entry__num { color: var(--accent-ink); }
+
+@media (min-width: 620px) and (hover: hover) {
+  .entry__summary:hover .entry__name,
+  .entry.is-hot .entry__name { letter-spacing: 0.09em; }
+}
+.entry[open] .entry__name { letter-spacing: 0.09em; }
+
+.entry__detail {
+  padding: 0 0 var(--u) calc(var(--u) * 2);
+  display: flex;
+  gap: var(--gap);
+  align-items: flex-start;
+  animation: reveal 0.45s var(--ease) both;
+}
+.entry__detail-mark {
+  display: none;
+  width: calc(var(--u) * 3);
+  height: calc(var(--u) * 3);
+  flex: none;
+  color: var(--ink);
+}
+
+.entry__body { max-width: 52ch; }
+.entry__tag {
+  font-size: var(--t-micro);
+  line-height: var(--u);
+  letter-spacing: 0.08em;
+  color: var(--accent-ink);
+}
+.entry__body p { color: var(--muted); }
+.entry__body p + p { margin-top: var(--u); }
+
+.entry__open {
+  display: inline-block;
+  margin-top: calc(var(--u) - 10px);
+  margin-bottom: -10px;
+  padding: 10px 0;
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.25s var(--ease);
+}
+.entry__open:hover { opacity: 0.6; }
+
+/* ---------- band ---------- */
+
+.band {
+  box-shadow: inset 0 1px 0 var(--rule);
+  padding: calc(var(--u) * 3) var(--margin);
+}
+/* The band caps at 34px so its descenders clear a 48px line, and the block
+   keeps a whole number of units either side. */
+.band__lines {
+  grid-column: 1 / 13;
+  font-size: clamp(20px, 3.1vw, 34px);
+  line-height: calc(var(--u) * 2);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.band__lines span { display: block; }
+
+/* ---------- footer ---------- */
+
+.foot { padding: 0 var(--margin) calc(var(--u) * 2); }
+.foot__rule {
+  grid-column: 1 / 13;
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 0 0 calc(var(--u) - 1px);   /* rule + gap + row = exactly 2 units */
+}
+.foot__nav {
+  grid-column: 1 / 7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--u) * 1.2);
+}
+.foot__copy { grid-column: 8 / 13; justify-self: end; text-align: right; }
+.foot__nav, .foot__copy {
+  font-size: var(--t-micro);
+  line-height: var(--u);
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+.foot__nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--faint);
+  padding: 10px 0;
+  margin: -10px 0;
+  transition: color 0.25s var(--ease);
+}
+.foot__nav a:hover { color: var(--ink); }
+
+/* ---------- entrance ---------- */
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.rise { animation: reveal 0.6s var(--ease) both; animation-delay: calc(var(--i, 0) * 60ms); }
+
+/* ---------- responsive ---------- */
+
+/* The two-column layout holds down to 860px so a half-screen window on a
+   laptop still gets the index beside the text, not stacked under it. */
+@media (max-width: 860px) {
+  .stage { grid-column: 1 / 13; }
+  .index-col { grid-column: 1 / 13; margin-top: calc(var(--u) * 2); }
+  .preview { display: none; }
+  .entry__detail-mark { display: block; }
+  .shell { min-height: 0; }
+  .home { row-gap: 0; }
+}
+
+@media (max-width: 640px) {
+  :root { --cols: 6; }
+  .brand { grid-column: 1 / 7; }
+  /* 48px tall is both a whole 2 units and a comfortable tap target, so the
+     desktop padding/negative-margin trick is not needed here. */
+  .brand { height: calc(var(--u) * 2); padding: 0; margin: 0; }
+  .brand__mark { height: 30px; }
+  .controls { grid-column: 1 / 7; justify-self: start; justify-content: space-between; width: 100%; }
+  .masthead { row-gap: var(--u); align-items: start; }
+  .stage, .index-col, .band__lines, .foot__rule, .foot__nav { grid-column: 1 / 7; }
+  .foot__copy { grid-column: 1 / 7; justify-self: start; text-align: left; }
+  .entry__summary { grid-template-columns: calc(var(--u) * 1.5) minmax(0, 1fr); }
+  .entry__detail { padding-left: 0; flex-direction: column; }
+  .band__lines { line-height: calc(var(--u) * 1.5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- story page ---------- */
+
+.page {
+  min-height: 100svh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--u) var(--margin);
+  row-gap: calc(var(--u) * 3);
+}
+.page .foot { padding: 0; margin-top: auto; }
+
+.story__head {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.story__head-label {
+  grid-column: 1 / 3;
+  font-size: var(--t-micro);
+  line-height: var(--u);
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.story__head-name {
+  grid-column: 4 / 10;
+  font-size: clamp(20px, 3.1vw, 34px);
+  line-height: calc(var(--u) * 2);
+  letter-spacing: -0.03em;
+}
+
+.chapter {
+  align-items: start;
+  padding-top: calc(var(--u) * 2);
+}
+.chapter__aside { grid-column: 1 / 3; }
+.chapter__title {
+  margin: 0;
+  font-size: var(--t-body);
+  font-weight: inherit;
+  line-height: var(--u);
+  letter-spacing: 0.02em;
+}
+.chapter__period {
+  display: block;
+  font-size: var(--t-micro);
+  line-height: var(--u);
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.chapter__body {
+  grid-column: 4 / 10;
+  display: flex;
+  flex-direction: column;
+  gap: var(--u);
+  max-width: 62ch;
+  color: var(--muted);
+}
+.chapter:first-of-type .chapter__body { color: var(--ink); }
+
+@media (max-width: 1000px) {
+  .story__head-name { grid-column: 4 / 13; }
+  .chapter__body { grid-column: 4 / 13; }
+}
+
+@media (max-width: 640px) {
+  .story__head-label,
+  .story__head-name,
+  .chapter__aside,
+  .chapter__body { grid-column: 1 / 7; }
+  .chapter { row-gap: var(--u); padding-top: calc(var(--u) * 1.5); }
+  .chapter__aside { display: flex; align-items: baseline; gap: 0.8em; }
+  .chapter__period { display: inline; }
+}

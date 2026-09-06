@@ -1,0 +1,268 @@
+# -*- coding: utf-8 -*-
+import io, os
+from build_labs_lettering import lockup
+
+GLYPHS = {
+"shelvd-studio": '''<svg viewBox="0 0 236 204" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path d="M43.9999 182.012C43.9999 194.155 34.1502 204 22 204C9.84972 204 1.40712e-07 194.155 -3.90111e-07 182.012L8.67059e-05 69.9881C8.61751e-05 57.8443 9.8498 47.9998 22 47.9998C34.1503 47.9998 44 57.8443 44 69.9881L43.9999 182.012Z" fill="currentColor"/>
+<path d="M236 134.012C236 146.155 226.15 156 214 156C201.85 156 192 146.155 192 134.012L192 21.9881C192 9.84429 201.85 -0.000205381 214 -0.000205912C226.15 -0.000206443 236 9.84429 236 21.9881L236 134.012Z" fill="currentColor"/>
+<path d="M188 182.143C188 194.214 178.15 204 166 204C153.85 204 144 194.214 144 182.143L144 21.857C144 9.78561 153.85 -0.000204148 166 -0.000204679C178.15 -0.00020521 188 9.7856 188 21.857L188 182.143Z" fill="currentColor"/>
+<path d="M140 182.143C140 194.214 130.15 204 118 204C105.85 204 96 194.214 96 182.143L96 21.857C96 9.78561 105.85 -0.000204148 118 -0.000204679C130.15 -0.00020521 140 9.7856 140 21.857L140 182.143Z" fill="currentColor"/>
+<path d="M92 182.143C92 194.214 82.1503 204 70 204C57.8498 204 48 194.214 48 182.143L48 21.857C48 9.78561 57.8498 -0.000204148 70 -0.000204679C82.1503 -0.00020521 92 9.7856 92 21.857L92 182.143Z" fill="currentColor"/>
+<path d="M 236 182 A 22 22 0 1 1 192 182 A 22 22 0 1 1 236 182 Z" fill="currentColor"/>
+<path d="M 44 22 A 22 22 0 1 1 0 22 A 22 22 0 1 1 44 22 Z" fill="currentColor"/>
+</svg>''',
+"miro-one": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path d="M28 55h38v130H28V55Zm73 28h38v102h-38V83Zm73-28h38v130h-38V55Z" fill="currentColor"/>
+<path d="M47 95c25 0 47 48 73 48s48-38 73-38" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+<circle cx="47" cy="95" r="13" class="hole"/>
+<circle cx="120" cy="143" r="13" class="hole"/>
+<circle cx="193" cy="105" r="13" class="hole"/>
+</svg>''',
+"archivo": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path d="M38 42h112c13.255 0 24 10.745 24 24v24H38V42Z" fill="currentColor"/>
+<path d="M66 96h112c13.255 0 24 10.745 24 24v24H66V96Z" fill="currentColor"/>
+<path d="M38 150h112c13.255 0 24 10.745 24 24v24H38v-48Z" fill="currentColor"/>
+<circle cx="190" cy="54" r="14" fill="currentColor"/>
+<path d="M174 76l14-10M176 150l15 10" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+</svg>''',
+"hsk-voice-coach": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path d="M34 46h124c13.255 0 24 10.745 24 24v72c0 13.255-10.745 24-24 24h-42l-34 30v-30H58c-13.255 0-24-10.745-24-24V46Z" fill="currentColor"/>
+<text x="108" y="129" text-anchor="middle" font-family="sans-serif" font-size="70" font-weight="700" class="hole">说</text>
+<path d="M194 82c10 12 10 36 0 48M211 66c20 23 20 58 0 81" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+</svg>''',
+"shelvd-vinyls": '''<svg viewBox="0 0 209 209" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path d="M66.6709 112.39C81.6242 115.476 93.4008 127.252 96.4873 142.205C81.534 139.119 69.7573 127.343 66.6709 112.39ZM141.913 112.39C138.827 127.343 127.051 139.119 112.098 142.205C115.184 127.252 126.961 115.476 141.913 112.39ZM96.4863 66.9619C93.3999 81.9152 81.6242 93.6909 66.6709 96.7773C69.7575 81.8247 81.5336 70.0484 96.4863 66.9619ZM112.099 66.9619C127.051 70.0483 138.826 81.8247 141.913 96.7773C126.96 93.6904 115.185 81.9148 112.099 66.9619Z" fill="currentColor"/>
+<path d="M40.0967 117.537C65.6126 122.803 85.7072 142.899 90.9736 168.415C65.4578 163.149 45.3627 143.053 40.0967 117.537ZM168.488 117.537C163.222 143.053 143.127 163.149 117.611 168.415C122.878 142.899 142.973 122.804 168.488 117.537ZM90.9736 40.0225C85.7075 65.5386 65.6128 85.6341 40.0967 90.9004C45.363 65.3847 65.458 45.2889 90.9736 40.0225ZM117.611 40.0225C143.127 45.2886 163.222 65.3845 168.488 90.9004C142.973 85.6338 122.877 65.5384 117.611 40.0225Z" fill="currentColor" opacity=".72"/>
+<path d="M0 125.839C41.4248 134.388 74.0491 167.013 82.5986 208.438C41.1741 199.888 8.54896 167.264 0 125.839ZM208.438 125.839C199.889 167.263 167.265 199.888 125.841 208.438C134.39 167.013 167.014 134.388 208.438 125.839ZM82.5986 0C74.0492 41.4244 41.4247 74.0478 0 82.5967C8.54943 41.1727 41.1746 8.54927 82.5986 0ZM125.841 0C167.265 8.54921 199.889 41.1728 208.438 82.5967C167.015 74.0473 134.39 41.424 125.841 0Z" fill="currentColor" opacity=".46"/>
+</svg>''',
+"teqvita-studio": '''<svg viewBox="0 0 286 319" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path fill="currentColor" d="M224 103L224 34L270 34C278.837 34 286 41.1634 286 50L286 103L224 103Z"/>
+<path fill="currentColor" d="M224 189L224 147L272.793 147C280.087 147 286 152.913 286 160.207L286 189L224 189Z"/>
+<path fill="currentColor" d="M224 189L224 292L197 292C188.163 292 181 284.837 181 276L181 189L224 189Z"/>
+<path fill="currentColor" d="M224 103H182V131C182 139.837 189.163 147 198 147H224V103Z"/>
+<path fill="currentColor" d="M78 103L17 103L17 131C17 139.837 24.1635 147 33 147L78 147L78 103Z"/>
+<path fill="currentColor" d="M160 257L103 257L103 303C103 311.837 110.163 319 119 319L160 319L160 257Z"/>
+<path fill="currentColor" d="M103 206L-8.1959e-06 206L-5.13611e-06 241C-4.36359e-06 249.837 7.16344 257 16 257L103 257L103 206Z"/>
+<path fill="currentColor" d="M103 103L103 206L126 206C134.837 206 142 198.837 142 190L142 103L103 103Z"/>
+<path fill="currentColor" d="M103 103L103 4.89152e-06L94 4.78419e-06C85.1634 4.67882e-06 78 7.16345 78 16L78 103L103 103Z"/>
+<path fill="currentColor" d="M182 103L182 16L158 16C149.163 16 142 23.1634 142 32L142 103L182 103Z"/>
+</svg>''',
+"feynviz": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path d="M46 36h84c13.255 0 24 10.745 24 24v44H70c-13.255 0-24-10.745-24-24V36Z" fill="currentColor"/>
+<path d="M86 110h108v50c0 13.255-10.745 24-24 24H86v-74Z" fill="currentColor"/>
+<path d="M46 154h34v50H46c-13.255 0-24-10.745-24-24v-2c0-13.255 10.745-24 24-24Z" fill="currentColor"/>
+<path d="M166 36h28c13.255 0 24 10.745 24 24v28h-52V36Z" fill="currentColor"/>
+<circle cx="42" cy="122" r="16" fill="currentColor"/>
+</svg>''',
+"bookmaps": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path d="M34 42h58c13.255 0 24 10.745 24 24v42H34V42Z" fill="currentColor"/>
+<path d="M122 42h84v66h-60c-13.255 0-24-10.745-24-24V42Z" fill="currentColor"/>
+<path d="M34 114h82v84H58c-13.255 0-24-10.745-24-24v-60Z" fill="currentColor"/>
+<path d="M122 114h48c13.255 0 24 10.745 24 24v60h-72v-84Z" fill="currentColor"/>
+<circle cx="206" cy="198" r="14" fill="currentColor"/>
+</svg>''',
+}
+
+PROJECTS = [
+ dict(id="shelvd-studio", name="Shelvd Studio", tag="Books",
+      href="https://shelvdstudio.com",
+      lead="A personal library app for book cataloging at home, built around cover scanning and a searchable 3D bookshelf.",
+      body="It turns a home library into something visible, structured, and easy to revisit, so books can live as a collection instead of disappearing into shelves, notes, or memory."),
+ dict(id="miro-one", name="MIRÓ 1", tag="Sound",
+      href="https://miro-landing-three.vercel.app/",
+      lead="A hybrid granular processor developed as firmware, an audio plugin, and a physical instrument.",
+      body="One fixed signal chain — FRACTURE, BLOOM, and TIDE — runs across Daisy hardware and AU, VST3, and standalone software. Current validation includes 81 DSP checks, 102 plugin checks, and successful Apple Audio Unit validation."),
+ dict(id="archivo", name="Archivo", tag="Knowledge",
+      href="https://archivo-five.vercel.app/",
+      lead="A human-in-the-loop system for capturing references, processing them with an agent, and publishing structured knowledge.",
+      body="A mobile web form sends notes and references to a Vercel Blob queue. A local agent reads pending items, organizes the source material, and regenerates navigable pages, with human review as the approval step."),
+ dict(id="hsk-voice-coach", name="HSK Voice Coach", tag="Mandarin",
+      href="https://hsk-voice-coach.vercel.app/",
+      lead="A daily Mandarin voice tutor built on ElevenLabs Agents, structured around HSK vocabulary and evidence-based progress.",
+      body="A client-side validation layer rejects out-of-level vocabulary, unsupported progress, and corrections that cannot be traced back to the transcript."),
+ dict(id="shelvd-vinyls", name="Shelvd Vinyls", tag="Records",
+      href="https://shelvdvinyls.com",
+      lead="A vinyl cataloging experience for giving records the visual presentation they deserve.",
+      body="Capture a sleeve, catalog the album, and browse the collection in Shelf, Grid, and CoverFlow."),
+ dict(id="teqvita-studio", name="Teqvita Studio", tag="3D",
+      href="https://teqvita-studio.vercel.app",
+      lead="A generative 3D studio that turns prompts, photos, or voice into editable models.",
+      body="Describe what you want, take a photo, or say it out loud, then refine the result and move it into the next stage of production."),
+ dict(id="feynviz", name="Feynviz", tag="Physics",
+      href="https://feynviz.vercel.app",
+      lead="An interactive edition of Six Easy Pieces where each chapter becomes an explorable simulation.",
+      body="Feynman's concepts become visual systems, so abstract ideas can be tested through movement, state, and interaction."),
+ dict(id="bookmaps", name="Bookmaps", tag="Data",
+      href="https://bookmaps.vercel.app/demos/bookmaps",
+      lead="A visual map of Peru's 2026 presidential candidates, sized by Polymarket win probability.",
+      body="Thirty-five candidacies from the April 12, 2026 elections, each block sized by its probability of victory according to Polymarket at the cutoff date."),
+]
+
+ARROW = ('<svg class="arrow" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">'
+         '<path d="M2.5 9.5 9.5 2.5M4 2.5h5.5V8" stroke="currentColor" stroke-width="1.4" '
+         'stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+
+ICON_MAIL = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" '
+             'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+             '<rect x="2.5" y="5" width="19" height="14" rx="1.5"/>'
+             '<path d="M3 6.5l9 6.5 9-6.5"/></svg>')
+
+ICON_GITHUB = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">'
+               '<path d="M12 1.7a10.3 10.3 0 0 0-3.26 20.07c.52.1.71-.22.71-.5v-1.9c-2.87.62-3.48-1.23-3.48-1.23-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.08 1.59 1.07 1.59 1.07.92 1.59 2.42 1.13 3.01.87.09-.67.36-1.13.66-1.39-2.29-.26-4.7-1.15-4.7-5.11 0-1.13.4-2.05 1.06-2.78-.11-.26-.46-1.31.1-2.72 0 0 .87-.28 2.85 1.06a9.8 9.8 0 0 1 5.19 0c1.98-1.34 2.85-1.06 2.85-1.06.56 1.41.21 2.46.1 2.72.66.73 1.06 1.65 1.06 2.78 0 3.97-2.42 4.85-4.72 5.1.37.32.7.95.7 1.92v2.85c0 .28.19.61.72.5A10.3 10.3 0 0 0 12 1.7Z"/></svg>')
+
+
+entries = []
+for i, p in enumerate(PROJECTS):
+    entries.append(f'''        <details class="entry rise" style="--i:{6 + i}" data-project="{p['id']}">
+          <summary class="entry__summary">
+            <span class="entry__num">{i}</span>
+            <h3 class="entry__name">{p['name']}</h3>
+          </summary>
+          <div class="entry__detail">
+            <span class="entry__detail-mark">{GLYPHS[p['id']]}</span>
+            <div class="entry__body">
+              <p class="entry__tag">{p['tag']}</p>
+              <p class="entry__lead">{p['lead']}</p>
+              <p>{p['body']}</p>
+              <a class="entry__open" href="{p['href']}" target="_blank" rel="noopener noreferrer">Open project</a>
+            </div>
+          </div>
+        </details>''')
+
+html = f'''<!DOCTYPE html>
+<html lang="en" data-theme="light"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="description" content="A personal lab by Alonso Rivera. Design, code, systems and AI, in projects about books, records, sound and learning.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="MIRÓ Labs">
+<meta property="og:url" content="https://www.miro-labs.com/">
+<meta property="og:title" content="MIRÓ Labs — Alonso Rivera">
+<meta property="og:description" content="A personal lab by Alonso Rivera. Design, code, systems and AI, in projects about books, records, sound and learning.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MIRÓ Labs — Alonso Rivera">
+<meta name="twitter:description" content="A personal lab by Alonso Rivera. Design, code, systems and AI, in projects about books, records, sound and learning.">
+<title>MIRÓ Labs — Alonso Rivera</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/miro-index.css?v=index-13">
+<script src="assets/hash-redirects.js"></script>
+<script>
+(function () {{
+  try {{
+    var t = window.localStorage.getItem("miroTheme");
+    document.documentElement.setAttribute("data-theme", t === "dark" ? "dark" : "light");
+  }} catch (e) {{}}
+}})();
+</script>
+</head>
+<body id="top">
+
+<a class="skip" href="#projects">Skip to the index</a>
+
+<div class="opening" aria-hidden="true">
+  <span class="opening__lockup">
+    <span class="opening__reveal">
+      {lockup("opening__mark", "o", labs=False)}
+      <span class="opening__caret"></span>
+      <span class="opening__dot"></span>
+    </span>
+  </span>
+</div>
+
+<div class="grid-overlay" aria-hidden="true">
+  <div class="grid-overlay__lines"></div>
+  <div class="grid-overlay__cols"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</div>
+<p class="grid-hint" aria-hidden="true">12 columns / 26 px</p>
+
+<div class="shell">
+
+  <header class="masthead grid">
+    <a class="brand rise" style="--i:0" href="./" aria-label="MIRÓ Labs, home">
+      {lockup("brand__mark", "h", labs=False)}
+    </a>
+    <div class="controls rise" style="--i:1">
+      <div class="switch" role="group" aria-label="Language">
+        <button type="button" class="switch__btn" data-lang-choice="en" aria-pressed="true">EN</button>
+        <button type="button" class="switch__btn" data-lang-choice="es" aria-pressed="false">ES</button>
+      </div>
+      <button type="button" class="theme-btn" id="theme-toggle" aria-pressed="false" aria-label="Switch theme">
+        <span class="theme-btn__dot" aria-hidden="true"></span>
+        <span class="theme-btn__label theme-btn__label--light">Black</span>
+        <span class="theme-btn__label theme-btn__label--dark">Paper</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="home grid" id="main">
+    <h1 class="sr-only">MIRÓ Labs — a personal lab by Alonso Rivera</h1>
+
+    <div class="stage" id="stage">
+      <div class="layer layer--intro is-visible">
+        <div class="intro">
+          <p class="rise" style="--i:2">I'm Alonso Rivera. A designer who codes, and a builder who thinks with aesthetics.<span class="intro__dot" aria-hidden="true"></span></p>
+          <p class="rise" style="--i:3">MIRÓ Labs is my personal lab. It exists to reject the old model and explore the intersection of design, code, systems and AI. Through practice, not theory.</p>
+          <p class="rise" style="--i:4">I design and build products around books, records, sound, and learning. For myself, and sometimes for other people.</p>
+          <p class="rise" style="--i:5">Everything in the index is mine, and all of it opens.</p>
+          <p class="intro__about rise" style="--i:6"><a href="about.html">Get to know me</a></p>
+          <p class="intro__icons rise" style="--i:7">
+            <a href="mailto:alonsorgl28@gmail.com" aria-label="Email Alonso Rivera">{ICON_MAIL}</a>
+            <a href="https://github.com/alonsorgl28" target="_blank" rel="noopener noreferrer" aria-label="Alonso Rivera on GitHub">{ICON_GITHUB}</a>
+          </p>
+        </div>
+      </div>
+      <div class="layer layer--preview preview" aria-hidden="true">
+        <span class="preview__mark"></span>
+        <p class="preview__name"><span class="preview__name-text"></span><span class="preview__tag"></span></p>
+        <p class="preview__desc"></p>
+      </div>
+    </div>
+
+    <div class="index-col" id="projects">
+      <div class="index-col__head rise" style="--i:5">
+        <span class="label">Index</span>
+        <span class="label">08 projects</span>
+      </div>
+      <h2 class="sr-only">Projects</h2>
+      <div class="index" id="index">
+{chr(10).join(entries)}
+      </div>
+    </div>
+  </main>
+</div>
+
+<section class="band grid" id="studio" aria-label="Practice">
+  <p class="band__lines">
+    <span>Systems. Tools. Code. And design.</span>
+    <span>Experimentation. Prototypes. And play.</span>
+    <span>Process. Practice. And what's next.</span>
+  </p>
+</section>
+
+
+<footer class="foot grid">
+  <hr class="foot__rule">
+  <nav class="foot__nav" aria-label="Site links">
+    <a href="#projects">Index</a>
+    <a href="about.html">About</a>
+    <a href="https://github.com/alonsorgl28" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="mailto:alonsorgl28@gmail.com">Email</a>
+  </nav>
+  <span class="foot__copy">MIRÓ Labs — 2026 — press G for the grid</span>
+</footer>
+
+<script src="assets/i18n.js?v=index-13" defer></script>
+<script src="assets/miro-index.js?v=index-13" defer></script>
+
+</body></html>
+'''
+
+with io.open("index.html", "w", encoding="utf-8") as f:
+    f.write(html)
+print("written", os.path.getsize("index.html"), "bytes")
