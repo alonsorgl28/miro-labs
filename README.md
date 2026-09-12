@@ -9,7 +9,7 @@ own two files.
 ## Layout
 
 - `index.html` — the home page: a first-person introduction and a numbered
-  index of eight projects that previews on hover and opens in place.
+  index of nine projects that previews on hover and opens in place.
 - `about.html` — the CV told as a story.
 - `assets/miro-index.css` — the whole visual system.
 - `assets/miro-index.js` — the opening screen, the index behaviour, the

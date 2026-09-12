@@ -150,6 +150,12 @@
         "Física",
       "Data":
         "Datos",
+      "Hardware":
+        "Hardware",
+      "A price research engine for second-hand and new computer hardware, which finds the best price on the market and delivers the part to your door.":
+        "Un motor de investigación de precios de hardware nuevo y de segunda mano, que encuentra el mejor precio del mercado y te lleva la pieza a casa.",
+      "Every price on the site carries where it was found, when it was observed, and what the part actually sells for, as opposed to what sellers ask. Observations expire on purpose: when a quote is no longer fresh the site withholds the figure and re-checks it, rather than resetting a countdown.":
+        "Cada precio del sitio lleva dónde se encontró, cuándo se observó y a cuánto se vende de verdad la pieza, frente a lo que piden los vendedores. Las observaciones caducan a propósito: cuando una cotización deja de estar fresca, el sitio retiene la cifra y vuelve a comprobarla, en lugar de reiniciar una cuenta atrás.",
       "A personal library app for book cataloging at home, built around cover scanning and a searchable 3D bookshelf.":
         "Una app de biblioteca personal para catalogar libros en casa, construida alrededor del escaneo de portadas y una estantería 3D que se puede buscar.",
       "It turns a home library into something visible, structured, and easy to revisit, so books can live as a collection instead of disappearing into shelves, notes, or memory.":

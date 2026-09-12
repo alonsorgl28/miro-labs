@@ -55,6 +55,12 @@ GLYPHS = {
 <path d="M166 36h28c13.255 0 24 10.745 24 24v28h-52V36Z" fill="currentColor"/>
 <circle cx="42" cy="122" r="16" fill="currentColor"/>
 </svg>''',
+"modular": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<rect x="34" y="34" width="80" height="80" rx="10" fill="currentColor"/>
+<rect x="34" y="126" width="80" height="80" rx="10" fill="currentColor"/>
+<rect x="126" y="126" width="80" height="80" rx="10" fill="currentColor"/>
+<rect x="130" y="30" width="72" height="72" rx="8" fill="none" stroke="currentColor" stroke-width="8"/>
+</svg>''',
 "bookmaps": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <path d="M34 42h58c13.255 0 24 10.745 24 24v42H34V42Z" fill="currentColor"/>
 <path d="M122 42h84v66h-60c-13.255 0-24-10.745-24-24V42Z" fill="currentColor"/>
@@ -93,6 +99,10 @@ PROJECTS = [
       href="https://feynviz.vercel.app",
       lead="An interactive edition of Six Easy Pieces where each chapter becomes an explorable simulation.",
       body="Feynman's concepts become visual systems, so abstract ideas can be tested through movement, state, and interaction."),
+ dict(id="modular", name="MODULAR", tag="Hardware",
+      href="https://modular-fawn.vercel.app",
+      lead="A price research engine for second-hand and new computer hardware, which finds the best price on the market and delivers the part to your door.",
+      body="Every price on the site carries where it was found, when it was observed, and what the part actually sells for, as opposed to what sellers ask. Observations expire on purpose: when a quote is no longer fresh the site withholds the figure and re-checks it, rather than resetting a countdown."),
  dict(id="bookmaps", name="Bookmaps", tag="Data",
       href="https://bookmaps.vercel.app/demos/bookmaps",
       lead="A visual map of Peru's 2026 presidential candidates, sized by Polymarket win probability.",
