@@ -130,8 +130,8 @@
         "Notas",
       "Index":
         "Índice",
-      "08 projects":
-        "08 proyectos",
+      "09 projects":
+        "09 proyectos",
       "Open project":
         "Abrir proyecto",
       "Back to the top":
@@ -152,6 +152,12 @@
         "Datos",
       "Hardware":
         "Hardware",
+      "Robotics":
+        "Robótica",
+      "A catalog of components for building physical AI and robotics, organized by function and filtered by the specifications that actually decide a choice.":
+        "Un catálogo de componentes para construir IA física y robótica, organizado por función y filtrado por las especificaciones que de verdad deciden una elección.",
+      "215 components across 131 families, each carrying the supplier's public reference price, the date it was observed, and a link back to the manufacturer. Nothing is sold here yet: the call to action is a quote list, and a part with no public price says so instead of guessing one.":
+        "215 componentes en 131 familias, cada uno con el precio público de referencia del proveedor, la fecha en que se observó y un enlace de vuelta al fabricante. Aquí todavía no se vende nada: la acción es una lista de cotización, y la pieza que no tiene precio público lo dice en lugar de inventarlo.",
       "A price research engine for second-hand and new computer hardware, which finds the best price on the market and delivers the part to your door.":
         "Un motor de investigación de precios de hardware nuevo y de segunda mano, que encuentra el mejor precio del mercado y te lleva la pieza a casa.",
       "Every price on the site carries where it was found, when it was observed, and what the part actually sells for, as opposed to what sellers ask. Observations expire on purpose: when a quote is no longer fresh the site withholds the figure and re-checks it, rather than resetting a countdown.":

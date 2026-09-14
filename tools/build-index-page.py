@@ -68,6 +68,14 @@ GLYPHS = {
 <path d="M122 114h48c13.255 0 24 10.745 24 24v60h-72v-84Z" fill="currentColor"/>
 <circle cx="206" cy="198" r="14" fill="currentColor"/>
 </svg>''',
+"miro-marketplace": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<rect x="32" y="40" width="176" height="160" rx="10" fill="none" stroke="currentColor" stroke-width="10"/>
+<rect x="56" y="66" width="56" height="34" rx="5" fill="currentColor"/>
+<rect x="128" y="66" width="56" height="34" rx="5" fill="currentColor"/>
+<rect x="56" y="112" width="56" height="34" rx="5" fill="currentColor"/>
+<rect x="128" y="112" width="56" height="34" rx="5" fill="currentColor"/>
+<rect x="56" y="158" width="128" height="20" rx="5" fill="currentColor"/>
+</svg>''',
 }
 
 PROJECTS = [
@@ -107,6 +115,10 @@ PROJECTS = [
       href="https://bookmaps.vercel.app/demos/bookmaps",
       lead="A visual map of Peru's 2026 presidential candidates, sized by Polymarket win probability.",
       body="Thirty-five candidacies from the April 12, 2026 elections, each block sized by its probability of victory according to Polymarket at the cutoff date."),
+ dict(id="miro-marketplace", name="MIRO Marketplace", tag="Robotics",
+      href="https://miro-marketplace.vercel.app",
+      lead="A catalog of components for building physical AI and robotics, organized by function and filtered by the specifications that actually decide a choice.",
+      body="215 components across 131 families, each carrying the supplier's public reference price, the date it was observed, and a link back to the manufacturer. Nothing is sold here yet: the call to action is a quote list, and a part with no public price says so instead of guessing one."),
 ]
 
 ARROW = ('<svg class="arrow" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">'
@@ -237,7 +249,7 @@ html = f'''<!DOCTYPE html>
     <div class="index-col" id="projects">
       <div class="index-col__head rise" style="--i:5">
         <span class="label">Index</span>
-        <span class="label">08 projects</span>
+        <span class="label">09 projects</span>
       </div>
       <h2 class="sr-only">Projects</h2>
       <div class="index" id="index">
