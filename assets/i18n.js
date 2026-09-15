@@ -10,8 +10,8 @@
         "Conóceme",
       "Skip to the story":
         "Saltar a la historia",
-      "How Alonso Rivera got from a Communications degree to high-voltage tender systems and applied AI, told as a story rather than a list.":
-        "Cómo Alonso Rivera pasó de una carrera de Comunicaciones a sistemas de licitación de alta tensión e IA aplicada, contado como historia y no como lista.",
+      "Alonso Rivera's entrepreneurial journey: digital dentistry, international business, and prototypes built with AI.":
+        "La trayectoria emprendedora de Alonso Rivera: odontología digital, negocios internacionales y prototipos creados con IA.",
       "Get to know me — Alonso Rivera":
         "Conóceme — Alonso Rivera",
       "Email Alonso Rivera":
@@ -24,51 +24,51 @@
         "Dónde entró la IA",
       "Now":
         "Ahora",
-      "2024 — now":
-        "2024 — hoy",
-      "I studied Communications. Nobody told me I would spend the next decade explaining machines to people who had no particular interest in machines.":
-        "Estudié Comunicaciones. Nadie me dijo que pasaría la década siguiente explicando máquinas a gente sin ningún interés particular en las máquinas.",
-      "That turned out to be the job. Not the technology. The distance between a tool that works and a person willing to change how they work.":
-        "Ese resultó ser el trabajo. No la tecnología. La distancia entre una herramienta que funciona y una persona dispuesta a cambiar su forma de trabajar.",
-      "I founded the first company in Peru dedicated entirely to 3D printing for digital dentistry.":
-        "Fundé la primera empresa del Perú dedicada por completo a la impresión 3D para odontología digital.",
-      "The printers were never the hard part. A dentist who has worked the same way for twenty years has no reason to believe you. So I stopped presenting and started demonstrating: printers in their labs, hands in the resin, training until they could run the workflow without me in the room.":
-        "Las impresoras nunca fueron lo difícil. Un dentista que lleva veinte años trabajando igual no tiene por qué creerte. Así que dejé de presentar y empecé a demostrar: impresoras en sus laboratorios, las manos en la resina, formación hasta que pudieran usar el flujo sin mí en la sala.",
-      "Around 200 dentists and technicians came through. Then 80 clinics and labs. They reported production times about a third shorter and operating costs a fifth lower.":
-        "Pasaron unos 200 dentistas y técnicos. Después 80 clínicas y laboratorios. Reportaron tiempos de producción alrededor de un tercio más cortos y costes operativos un quinto más bajos.",
-      "In 2021 I spent four months on a research collaboration with Oqton, testing biocompatible resin workflows and returning structured feedback from real prints. During the pandemic we designed a 3D-printed biocompatible prototype that placed second nationally in an innovation competition run by Fundación Telefónica.":
-        "En 2021 pasé cuatro meses en una colaboración de investigación con Oqton, probando flujos de resina biocompatible y devolviendo retroalimentación estructurada a partir de impresiones reales. Durante la pandemia diseñamos un prototipo biocompatible impreso en 3D que quedó segundo a nivel nacional en un concurso de innovación de la Fundación Telefónica.",
-      "I ran operations and sales for a clinic-lab printing invisible aligners, opening it in Lima across both B2B and B2C.":
-        "Dirigí operaciones y ventas de un clinic-lab que imprimía alineadores invisibles, abriéndolo en Lima tanto en B2B como en B2C.",
-      "More than 100 orthodontic treatments, a partner-clinic network 40% larger, and a redesigned Lima–Brazil workflow that cut delivery times by a fifth. Two countries, one process, and a lot of things that only break in production.":
-        "Más de 100 tratamientos de ortodoncia, una red de clínicas asociadas un 40% más grande y un flujo Lima–Brasil rediseñado que recortó los tiempos de entrega un quinto. Dos países, un proceso y muchas cosas que solo se rompen en producción.",
-      "High-voltage infrastructure. Eleven utilities, more than fifteen manufacturers, thirteen countries.":
-        "Infraestructura de alta tensión. Once utilities, más de quince fabricantes, trece países.",
-      "I arrived to find tender and certification work spread across inboxes and spreadsheets. Rather than tidy it, I interviewed the people actually doing it and rebuilt the model around what they were really tracking: case IDs, owners, priorities, deadlines, dependencies, next actions, data validation, integrity alerts.":
-        "Llegué y encontré el trabajo de licitaciones y certificación repartido entre bandejas de correo y hojas de cálculo. En vez de ordenarlo, entrevisté a quienes lo hacían de verdad y reconstruí el modelo alrededor de lo que realmente seguían: IDs de caso, responsables, prioridades, fechas límite, dependencias, próximas acciones, validación de datos y alertas de integridad.",
-      "The moment I keep coming back to: after fixing the date quality, 54 overdue cases became visible. They had always been overdue. Nobody could see them. That is what a system is for.":
-        "El momento al que sigo volviendo: al corregir la calidad de las fechas, aparecieron 54 casos vencidos. Siempre habían estado vencidos. Nadie podía verlos. Para eso sirve un sistema.",
-      "Today it holds 123 live cases across 13 countries, 23 technical-conformity cases, 7 manufacturer registrations and a catalog of 215 certificates, used by 8 to 10 people on the technical and commercial teams.":
-        "Hoy sostiene 123 casos vivos en 13 países, 23 casos de conformidad técnica, 7 registros de fabricante y un catálogo de 215 certificados, y lo usan entre 8 y 10 personas de los equipos técnico y comercial.",
-      "Alongside it I led more than 15 international tenders with ENEL, ISA REP, EPEC and Luz del Sur under IEC, IRAM and RETIE standards, securing over USD 4M in contracts. I opened the Argentine market with an Indian manufacturer, negotiated a 15% factory-price reduction and closed more than USD 720K in first-year sales.":
-        "En paralelo lideré más de 15 licitaciones internacionales con ENEL, ISA REP, EPEC y Luz del Sur bajo normas IEC, IRAM y RETIE, asegurando más de USD 4M en contratos. Abrí el mercado argentino con un fabricante indio, negocié una reducción del 15% en precio de fábrica y cerré más de USD 720K en ventas del primer año.",
-      "Not as a strategy. As a response to the same bottlenecks appearing every quarter.":
-        "No como estrategia. Como respuesta a los mismos cuellos de botella que aparecían cada trimestre.",
-      "I mapped the recurring tender and contract-review work into reusable LLM workflows for requirement analysis and technical translation in high-voltage terminology. Then I did the part that actually matters: structured the human review and wrote the operating rules, so the commercial team can reuse the workflows without depending on a single operator.":
-        "Mapeé el trabajo recurrente de licitación y revisión de contratos a flujos LLM reutilizables para análisis de requisitos y traducción técnica en terminología de alta tensión. Después hice la parte que de verdad importa: estructuré la revisión humana y escribí las reglas de operación, para que el equipo comercial pueda reutilizar los flujos sin depender de un solo operador.",
-      "This site is the lab. It is where I build products to test how AI, code, design and human judgment hold up against real work, from definition and prototyping through to testing and documentation.":
-        "Este sitio es el laboratorio. Aquí construyo productos para probar cómo aguantan la IA, el código, el diseño y el criterio humano frente al trabajo real, desde la definición y el prototipado hasta las pruebas y la documentación.",
-      "A Mandarin tutor that refuses to trust its own model without checking the transcript. A knowledge system that will not publish without human approval. A granular audio processor running across firmware and three plugin formats. None of them are demos.":
-        "Un tutor de mandarín que se niega a confiar en su propio modelo sin revisar la transcripción. Un sistema de conocimiento que no publica sin aprobación humana. Un procesador de audio granular que corre sobre firmware y tres formatos de plugin. Ninguno es una demo.",
-      "Based in Lima, Peruvian and Italian, available for frequent international travel or relocation. Spanish native, English fluent, French intermediate.":
-        "Con base en Lima, peruano e italiano, disponible para viajar con frecuencia o reubicarme. Español nativo, inglés fluido, francés intermedio.",
-      "If you have a workflow that is breaking down, or an idea that needs someone who can talk to both the users and the engineers, write to me.":
-        "Si tienes un flujo de trabajo que se está rompiendo, o una idea que necesita a alguien capaz de hablar con los usuarios y con los ingenieros, escríbeme.",
+      "May 2024 — now":
+        "Mayo 2024 — hoy",
+      "I've been starting things since my teens. Studying Communications gave me a grounding in how people think and communicate; building businesses taught me to listen, make decisions, and take responsibility for what happened next.":
+        "Emprendo desde adolescente. Estudiar Comunicaciones me dio una base para entender cómo piensa y se comunica la gente; crear empresas me enseñó a escuchar, tomar decisiones y hacerme cargo de lo que venía después.",
+      "Over the past decade, I've worked close to both customers and technology. I enjoy understanding a problem well enough to explain it clearly, sketch a solution, and build a prototype that helps everyone decide what to do next.":
+        "Durante la última década he trabajado cerca de los clientes y de la tecnología. Me gusta entender un problema hasta poder explicarlo con claridad, plantear una solución y crear un prototipo que ayude a decidir cómo seguir.",
+      "I founded Teqvita to help dentists and dental technicians bring digital tools into their daily work. We sold 3D printers and scanners, but our work also involved helping people adopt a different way of producing.":
+        "Fundé Teqvita para ayudar a odontólogos y técnicos dentales a incorporar herramientas digitales en su trabajo diario. Vendíamos impresoras 3D y escáneres, y también acompañábamos a las personas a adoptar una nueva forma de producir.",
+      "I created our experience and training center, where we trained more than 200 dentists and dental technicians in digital workflows. We covered exocad, NemoCast, Blue Sky Bio, 3D printing, scanning, and milling. I also sold Medit and Shining desktop and intraoral scanners and personally handled customer onboarding.":
+        "Creé nuestro centro de experiencia y capacitación, donde formamos a más de 200 odontólogos y técnicos dentales en flujos digitales. Ofrecíamos capacitación en exocad, NemoCast, Blue Sky Bio, impresión 3D, escaneo y fresado. También vendía escáneres de escritorio e intraorales Medit y Shining, y yo mismo acompañaba al cliente en la puesta en marcha.",
+      "That experience shaped how I work today: understand the existing routine, demonstrate what could change, and help people feel comfortable using the tools themselves.":
+        "Esa experiencia marcó mi forma de trabajar: entender la rutina existente, mostrar qué podía cambiar y ayudar a que las personas se sintieran cómodas usando las herramientas por su cuenta.",
+      "In 2021, I spent four months collaborating with Oqton through Teqvita, testing material settings, positioning, and automatic supports with biocompatible resins and sharing feedback from the prints. During the pandemic, our team also developed a 3D-printed adapter for dental suction equipment, intended to limit aerosol spread during procedures. The project won second place nationally in a Fundación Telefónica competition.":
+        "En 2021 colaboré durante cuatro meses con Oqton desde Teqvita, probando parámetros de materiales, posicionamiento y soportes automáticos con resinas biocompatibles y aportando feedback de las impresiones. Durante la pandemia, nuestro equipo también desarrolló un adaptador impreso en 3D para suctores dentales, pensado para limitar la dispersión de aerosoles durante las intervenciones. El proyecto obtuvo el segundo lugar a nivel nacional en un concurso de Fundación Telefónica.",
+      "At Realigner Perú, a digital dental laboratory focused on clear aligners, I brought that experience into operations and commercial development. I worked with clinics and the production team to connect what the customer needed with the steps required to deliver it.":
+        "En Realigner Perú, un laboratorio dental digital especializado en alineadores invisibles, llevé esa experiencia a las operaciones y al desarrollo comercial. Trabajaba con las clínicas y el equipo de producción para conectar lo que necesitaba el cliente con los pasos necesarios para entregarlo.",
+      "It gave me a closer view of the whole workflow: communication with clinics, coordination with the lab, and follow-through on each case. I learned how much the customer experience depends on what happens between those steps.":
+        "Ahí conocí más de cerca el flujo completo: la comunicación con las clínicas, la coordinación con el laboratorio y el seguimiento de cada caso. Aprendí cuánto depende la experiencia del cliente de lo que ocurre entre esos pasos.",
+      "Since May 2024, I've worked in operations and business development at Skaiteks America Corp., which supplies medium- and high-voltage electrical equipment. The sector changed, but the work still brings together customers, manufacturers, and technical teams.":
+        "Desde mayo de 2024 trabajo en operaciones y desarrollo de negocios en Skaiteks America Corp., empresa que suministra equipos eléctricos de media y alta tensión. Cambió el sector, pero el trabajo sigue conectando a clientes, fabricantes y equipos técnicos.",
+      "International tenders and customer development have taken me to Colombia, Argentina, and Italy. Those conversations help me understand both the commercial opportunity and the technical requirements that determine whether a proposal can work.":
+        "Las licitaciones internacionales y el desarrollo de clientes me han llevado a Colombia, Argentina e Italia. Esas conversaciones me ayudan a entender tanto la oportunidad comercial como los requisitos técnicos que determinan si una propuesta es viable.",
+      "I also built a shared technical-commercial control system around the team's need for clearer follow-up. It brings cases, responsibilities, priorities, deadlines, and next steps into one place, giving the team a common view of the work.":
+        "También creé un sistema compartido de control técnico-comercial a partir de la necesidad del equipo de mejorar el seguimiento. Reúne casos, responsables, prioridades, fechas y próximos pasos en un solo lugar, para que el equipo tenga una visión común del trabajo.",
+      "The system connects tender tracking with technical approvals, certifications, and manufacturer information. Building it meant understanding how those activities depend on each other and making that relationship visible in the daily workflow.":
+        "El sistema conecta el seguimiento de licitaciones con aprobaciones técnicas, certificaciones e información de fabricantes. Construirlo implicó entender cómo dependen unas actividades de otras y hacer visible esa relación en el trabajo diario.",
+      "Working across sales and operations has taught me to carry a customer's request through negotiation, technical coordination, and follow-up. That is the experience I draw on when I build a new tool.":
+        "Trabajar entre ventas y operaciones me ha enseñado a acompañar una necesidad del cliente a través de la negociación, la coordinación técnica y el seguimiento. Esa es la experiencia que llevo conmigo cuando construyo una herramienta nueva.",
+      "AI has become part of how I explore ideas and solve recurring problems. At Skaiteks, I created reusable agent instructions to help analyze technical and commercial tender documents and translate them using the terminology of the energy sector.":
+        "La IA se ha vuelto parte de cómo exploro ideas y resuelvo problemas recurrentes. En Skaiteks creé instrucciones reutilizables para agentes que ayudan a analizar las bases técnicas y comerciales de licitaciones y a traducir documentación con la terminología del sector energético.",
+      "I use agents to build prototypes, test a workflow, and make an idea concrete enough to discuss. When a project needs production engineering, I can bring the customer context, process, and prototype to the engineers who will define the architecture and make it robust.":
+        "Uso agentes para construir prototipos, probar un flujo y darle a una idea una forma concreta que podamos discutir. Cuando un proyecto necesita ingeniería para producción, puedo llevar el contexto del cliente, el proceso y el prototipo a los ingenieros que definirán la arquitectura y le darán solidez.",
+      "MIRÓ Labs is where I keep building on that experience. Some projects start with a problem at work; others with my own curiosity about books, records, sound, or learning. I use design, AI, and experimentation to see how far an idea can go.":
+        "MIRÓ Labs es donde sigo construyendo a partir de esa experiencia. Algunos proyectos empiezan con un problema del trabajo; otros, con mi curiosidad por los libros, los vinilos, el sonido o el aprendizaje. Uso diseño, IA y experimentación para descubrir hasta dónde puede llegar una idea.",
+      "A Mandarin voice tutor came from wanting to practice every day. My book and vinyl projects came from wanting a better way to enjoy my collections. Building things I use gives me a reason to keep testing, noticing what gets in the way, and improving them.":
+        "Un tutor de mandarín por voz nació de querer practicar todos los días. Los proyectos de libros y vinilos, de querer disfrutar mejor mis colecciones. Construir cosas que uso me da un motivo para seguir probándolas, detectar qué estorba y mejorarlas.",
+      "I'm based in Lima, with Peruvian and Italian citizenship, and open to international travel and relocation. I'm interested in working with teams that want to bring useful technology into people's everyday work.":
+        "Vivo en Lima, tengo nacionalidad peruana e italiana y estoy abierto a viajar y mudarme. Me interesa trabajar con equipos que quieran llevar tecnología útil al trabajo cotidiano de las personas.",
+      "If you have a problem worth exploring or an idea you'd like to put to the test, I'd love to hear about it.":
+        "Si tienes un problema que vale la pena explorar o una idea que te gustaría poner a prueba, me encantará conocerla.",
       /* index direction, mono revision */
-      "I design and build products around books, records, sound, and learning. For myself, and sometimes for other people.":
-        "Diseño y construyo productos alrededor de libros, vinilos, sonido y aprendizaje. Para mí, y a veces para otras personas.",
-      "Everything in the index is mine, and all of it opens.":
-        "Todo lo que está en el índice es mío, y todo se puede abrir.",
+      "That approach grew through building businesses in digital dentistry and working in the energy sector. Today I bring it to MIRÓ Labs, using AI to explore ideas and put them into practice.":
+        "Esa forma de trabajar nació emprendiendo en odontología digital y trabajando en el sector energético. Hoy la llevo a MIRÓ Labs, donde uso IA para explorar ideas y ponerlas en práctica.",
+      "The projects here come from work, curiosity, and things I want to use myself. Open one and take a look.":
+        "Estos proyectos nacen del trabajo, de la curiosidad y de cosas que quiero usar yo mismo. Abre uno y explóralo.",
       "MIRÓ Labs — 2026 — press G for the grid":
         "MIRÓ Labs — 2026 — pulsa G para ver la retícula",
       "Email":
@@ -76,10 +76,10 @@
       "This page sits on twelve columns and a 26 pixel line. Press G to see it.":
         "Esta página se apoya en doce columnas y una línea de 26 píxeles. Pulsa G para verla.",
       /* index direction, grid revision */
-      "I'm Alonso Rivera. A designer who codes, and a builder who thinks with aesthetics.":
-        "Soy Alonso Rivera. Un diseñador que programa y un constructor que piensa con estética.",
-      "MIRÓ Labs is my personal lab. It exists to reject the old model and explore the intersection of design, code, systems and AI. Through practice, not theory.":
-        "MIRÓ Labs es mi laboratorio personal. Existe para rechazar el modelo viejo y explorar la intersección entre diseño, código, sistemas e IA. Desde la práctica, no desde la teoría.",
+      "I'm Alonso Rivera. An entrepreneur who turns everyday problems into working prototypes.":
+        "Soy Alonso Rivera. Un emprendedor que convierte problemas cotidianos en prototipos que funcionan.",
+      "I start by listening: how people work, where they get stuck, and what would make their day easier. Then I map the process and build something they can try.":
+        "Empiezo por escuchar: cómo trabaja la gente, dónde se traba y qué le haría el día más fácil. Después ordeno el proceso y construyo algo que pueda probar.",
       "I turn complex systems into things you can use, and ideas into products that run. Everything in the index is mine, and all of it opens.":
         "Convierto sistemas complejos en cosas que se pueden usar, e ideas en productos que funcionan. Todo lo que está en el índice es mío, y todo se puede abrir.",
       "Systems. Tools. Code. And design.":
@@ -100,8 +100,8 @@
       "About MIRÓ Labs":
         "Sobre MIRÓ Labs",
       /* index direction, 2026-09-06 */
-      "A personal lab by Alonso Rivera. Design, code, systems and AI, in projects about books, records, sound and learning.":
-        "Un laboratorio personal de Alonso Rivera. Diseño, código, sistemas e IA, en proyectos sobre libros, vinilos, sonido y aprendizaje.",
+      "Alonso Rivera's personal lab. An entrepreneur exploring real problems through design, AI, and working prototypes.":
+        "El laboratorio personal de Alonso Rivera. Un emprendedor que explora problemas reales a través del diseño, la IA y prototipos funcionales.",
       "en_US":
         "es_ES",
       "Skip to the index":

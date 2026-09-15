@@ -159,17 +159,17 @@ html = f'''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#f4f2ee" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-<meta name="description" content="A personal lab by Alonso Rivera. Design, code, systems and AI, in projects about books, records, sound and learning.">
+<meta name="description" content="Alonso Rivera's personal lab. An entrepreneur exploring real problems through design, AI, and working prototypes.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="MIRÓ Labs">
 <meta property="og:url" content="https://www.miro-labs.com/">
 <meta property="og:title" content="MIRÓ Labs — Alonso Rivera">
-<meta property="og:description" content="A personal lab by Alonso Rivera. Design, code, systems and AI, in projects about books, records, sound and learning.">
+<meta property="og:description" content="Alonso Rivera's personal lab. An entrepreneur exploring real problems through design, AI, and working prototypes.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MIRÓ Labs — Alonso Rivera">
-<meta name="twitter:description" content="A personal lab by Alonso Rivera. Design, code, systems and AI, in projects about books, records, sound and learning.">
+<meta name="twitter:description" content="Alonso Rivera's personal lab. An entrepreneur exploring real problems through design, AI, and working prototypes.">
 <title>MIRÓ Labs — Alonso Rivera</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/miro-index.css?v=index-13">
@@ -228,10 +228,10 @@ html = f'''<!DOCTYPE html>
     <div class="stage" id="stage">
       <div class="layer layer--intro is-visible">
         <div class="intro">
-          <p class="rise" style="--i:2">I'm Alonso Rivera. A designer who codes, and a builder who thinks with aesthetics.<span class="intro__dot" aria-hidden="true"></span></p>
-          <p class="rise" style="--i:3">MIRÓ Labs is my personal lab. It exists to reject the old model and explore the intersection of design, code, systems and AI. Through practice, not theory.</p>
-          <p class="rise" style="--i:4">I design and build products around books, records, sound, and learning. For myself, and sometimes for other people.</p>
-          <p class="rise" style="--i:5">Everything in the index is mine, and all of it opens.</p>
+          <p class="rise" style="--i:2">I'm Alonso Rivera. An entrepreneur who turns everyday problems into working prototypes.<span class="intro__dot" aria-hidden="true"></span></p>
+          <p class="rise" style="--i:3">I start by listening: how people work, where they get stuck, and what would make their day easier. Then I map the process and build something they can try.</p>
+          <p class="rise" style="--i:4">That approach grew through building businesses in digital dentistry and working in the energy sector. Today I bring it to MIRÓ Labs, using AI to explore ideas and put them into practice.</p>
+          <p class="rise" style="--i:5">The projects here come from work, curiosity, and things I want to use myself. Open one and take a look.</p>
           <p class="intro__about rise" style="--i:6"><a href="about.html">Get to know me</a></p>
           <p class="intro__icons rise" style="--i:7">
             <a href="mailto:alonsorgl28@gmail.com" aria-label="Email Alonso Rivera">{ICON_MAIL}</a>
@@ -279,7 +279,7 @@ html = f'''<!DOCTYPE html>
   <span class="foot__copy">MIRÓ Labs — 2026 — press G for the grid</span>
 </footer>
 
-<script src="assets/i18n.js?v=index-13" defer></script>
+<script src="assets/i18n.js?v=copy-20260915" defer></script>
 <script src="assets/miro-index.js?v=index-13" defer></script>
 
 </body></html>

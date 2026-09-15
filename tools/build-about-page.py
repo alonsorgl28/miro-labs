@@ -4,40 +4,40 @@ import io, re
 from build_labs_lettering import lockup
 
 
-# Every claim below is taken from Alonso_Rivera_CV_2026.pdf. Nothing invented.
+# Copy updated from Alonso's confirmed career details, September 2026.
 CHAPTERS = [
  ("", "Lima", [
-   "I studied Communications. Nobody told me I would spend the next decade explaining machines to people who had no particular interest in machines.",
-   "That turned out to be the job. Not the technology. The distance between a tool that works and a person willing to change how they work.",
+   "I've been starting things since my teens. Studying Communications gave me a grounding in how people think and communicate; building businesses taught me to listen, make decisions, and take responsibility for what happened next.",
+   "Over the past decade, I've worked close to both customers and technology. I enjoy understanding a problem well enough to explain it clearly, sketch a solution, and build a prototype that helps everyone decide what to do next.",
  ]),
  ("2018 — 2024", "Teqvita", [
-   "I founded the first company in Peru dedicated entirely to 3D printing for digital dentistry.",
-   "The printers were never the hard part. A dentist who has worked the same way for twenty years has no reason to believe you. So I stopped presenting and started demonstrating: printers in their labs, hands in the resin, training until they could run the workflow without me in the room.",
-   "Around 200 dentists and technicians came through. Then 80 clinics and labs. They reported production times about a third shorter and operating costs a fifth lower.",
-   "In 2021 I spent four months on a research collaboration with Oqton, testing biocompatible resin workflows and returning structured feedback from real prints. During the pandemic we designed a 3D-printed biocompatible prototype that placed second nationally in an innovation competition run by Fundación Telefónica.",
+   "I founded Teqvita to help dentists and dental technicians bring digital tools into their daily work. We sold 3D printers and scanners, but our work also involved helping people adopt a different way of producing.",
+   "I created our experience and training center, where we trained more than 200 dentists and dental technicians in digital workflows. We covered exocad, NemoCast, Blue Sky Bio, 3D printing, scanning, and milling. I also sold Medit and Shining desktop and intraoral scanners and personally handled customer onboarding.",
+   "That experience shaped how I work today: understand the existing routine, demonstrate what could change, and help people feel comfortable using the tools themselves.",
+   "In 2021, I spent four months collaborating with Oqton through Teqvita, testing material settings, positioning, and automatic supports with biocompatible resins and sharing feedback from the prints. During the pandemic, our team also developed a 3D-printed adapter for dental suction equipment, intended to limit aerosol spread during procedures. The project won second place nationally in a Fundación Telefónica competition.",
  ]),
  ("2021 — 2024", "Realigner", [
-   "I ran operations and sales for a clinic-lab printing invisible aligners, opening it in Lima across both B2B and B2C.",
-   "More than 100 orthodontic treatments, a partner-clinic network 40% larger, and a redesigned Lima–Brazil workflow that cut delivery times by a fifth. Two countries, one process, and a lot of things that only break in production.",
+   "At Realigner Perú, a digital dental laboratory focused on clear aligners, I brought that experience into operations and commercial development. I worked with clinics and the production team to connect what the customer needed with the steps required to deliver it.",
+   "It gave me a closer view of the whole workflow: communication with clinics, coordination with the lab, and follow-through on each case. I learned how much the customer experience depends on what happens between those steps.",
  ]),
- ("2024 — now", "Skaiteks", [
-   "High-voltage infrastructure. Eleven utilities, more than fifteen manufacturers, thirteen countries.",
-   "I arrived to find tender and certification work spread across inboxes and spreadsheets. Rather than tidy it, I interviewed the people actually doing it and rebuilt the model around what they were really tracking: case IDs, owners, priorities, deadlines, dependencies, next actions, data validation, integrity alerts.",
-   "The moment I keep coming back to: after fixing the date quality, 54 overdue cases became visible. They had always been overdue. Nobody could see them. That is what a system is for.",
-   "Today it holds 123 live cases across 13 countries, 23 technical-conformity cases, 7 manufacturer registrations and a catalog of 215 certificates, used by 8 to 10 people on the technical and commercial teams.",
-   "Alongside it I led more than 15 international tenders with ENEL, ISA REP, EPEC and Luz del Sur under IEC, IRAM and RETIE standards, securing over USD 4M in contracts. I opened the Argentine market with an Indian manufacturer, negotiated a 15% factory-price reduction and closed more than USD 720K in first-year sales.",
+ ("May 2024 — now", "Skaiteks", [
+   "Since May 2024, I've worked in operations and business development at Skaiteks America Corp., which supplies medium- and high-voltage electrical equipment. The sector changed, but the work still brings together customers, manufacturers, and technical teams.",
+   "International tenders and customer development have taken me to Colombia, Argentina, and Italy. Those conversations help me understand both the commercial opportunity and the technical requirements that determine whether a proposal can work.",
+   "I also built a shared technical-commercial control system around the team's need for clearer follow-up. It brings cases, responsibilities, priorities, deadlines, and next steps into one place, giving the team a common view of the work.",
+   "The system connects tender tracking with technical approvals, certifications, and manufacturer information. Building it meant understanding how those activities depend on each other and making that relationship visible in the daily workflow.",
+   "Working across sales and operations has taught me to carry a customer's request through negotiation, technical coordination, and follow-up. That is the experience I draw on when I build a new tool.",
  ]),
  ("", "Where AI came in", [
-   "Not as a strategy. As a response to the same bottlenecks appearing every quarter.",
-   "I mapped the recurring tender and contract-review work into reusable LLM workflows for requirement analysis and technical translation in high-voltage terminology. Then I did the part that actually matters: structured the human review and wrote the operating rules, so the commercial team can reuse the workflows without depending on a single operator.",
+   "AI has become part of how I explore ideas and solve recurring problems. At Skaiteks, I created reusable agent instructions to help analyze technical and commercial tender documents and translate them using the terminology of the energy sector.",
+   "I use agents to build prototypes, test a workflow, and make an idea concrete enough to discuss. When a project needs production engineering, I can bring the customer context, process, and prototype to the engineers who will define the architecture and make it robust.",
  ]),
  ("", "MIRÓ Labs", [
-   "This site is the lab. It is where I build products to test how AI, code, design and human judgment hold up against real work, from definition and prototyping through to testing and documentation.",
-   "A Mandarin tutor that refuses to trust its own model without checking the transcript. A knowledge system that will not publish without human approval. A granular audio processor running across firmware and three plugin formats. None of them are demos.",
+   "MIRÓ Labs is where I keep building on that experience. Some projects start with a problem at work; others with my own curiosity about books, records, sound, or learning. I use design, AI, and experimentation to see how far an idea can go.",
+   "A Mandarin voice tutor came from wanting to practice every day. My book and vinyl projects came from wanting a better way to enjoy my collections. Building things I use gives me a reason to keep testing, noticing what gets in the way, and improving them.",
  ]),
  ("", "Now", [
-   "Based in Lima, Peruvian and Italian, available for frequent international travel or relocation. Spanish native, English fluent, French intermediate.",
-   "If you have a workflow that is breaking down, or an idea that needs someone who can talk to both the users and the engineers, write to me.",
+   "I'm based in Lima, with Peruvian and Italian citizenship, and open to international travel and relocation. I'm interested in working with teams that want to bring useful technology into people's everyday work.",
+   "If you have a problem worth exploring or an idea you'd like to put to the test, I'd love to hear about it.",
  ]),
 ]
 
@@ -61,12 +61,12 @@ html = f'''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
-<meta name="description" content="How Alonso Rivera got from a Communications degree to high-voltage tender systems and applied AI, told as a story rather than a list.">
+<meta name="description" content="Alonso Rivera's entrepreneurial journey: digital dentistry, international business, and prototypes built with AI.">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="MIRÓ Labs">
 <meta property="og:title" content="Get to know me — Alonso Rivera">
-<meta property="og:description" content="How Alonso Rivera got from a Communications degree to high-voltage tender systems and applied AI, told as a story rather than a list.">
+<meta property="og:description" content="Alonso Rivera's entrepreneurial journey: digital dentistry, international business, and prototypes built with AI.">
 <title>Get to know me — Alonso Rivera</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/miro-index.css?v=index-13">
@@ -130,7 +130,7 @@ html = f'''<!DOCTYPE html>
 
 </div>
 
-<script src="assets/i18n.js?v=index-13" defer></script>
+<script src="assets/i18n.js?v=copy-20260915" defer></script>
 <script src="assets/miro-index.js?v=index-13" defer></script>
 
 </body></html>
