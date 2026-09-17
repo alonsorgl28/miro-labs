@@ -130,8 +130,8 @@
         "Notas",
       "Index":
         "Índice",
-      "09 projects":
-        "09 proyectos",
+      "10 projects":
+        "10 proyectos",
       "Open project":
         "Abrir proyecto",
       "Back to the top":
@@ -154,6 +154,12 @@
         "Hardware",
       "Robotics":
         "Robótica",
+      "Experiments":
+        "Experimentos",
+      "Nine posters by Jacqueline Casey, animated in the browser so they arrive one by one, stack, and collapse into a single image.":
+        "Nueve carteles de Jacqueline Casey, animados en el navegador para que lleguen uno a uno, se apilen y se derrumben en una sola imagen.",
+      "The motion is a study of someone else's work: an existing WebGL opening was taken apart and kept whole — its shaders, its camera path, its timing — with the five photographs it shipped replaced by posters Casey designed at MIT between 1955 and 1989. Forty-five posters were pulled from the archive and laid out on contact sheets before nine were chosen, weighted toward how each one holds up in grayscale: the sequence drains the color out and only gives it back to the cover as it fills the screen. Built with Three.js and GSAP, with no build step. Poster images from the MIT Museum collection.":
+        "El movimiento es un estudio del trabajo de otro: se desarmó una secuencia de apertura en WebGL y se conservó entera — sus shaders, su recorrido de cámara, sus tiempos — cambiando las cinco fotografías originales por carteles que Casey diseñó en el MIT entre 1955 y 1989. Se bajaron cuarenta y cinco carteles del archivo y se ordenaron en hojas de contacto antes de elegir nueve, pesando sobre todo cómo aguanta cada uno en escala de grises: la secuencia le saca el color y solo se lo devuelve a la portada cuando llena la pantalla. Hecho con Three.js y GSAP, sin paso de build. Imágenes de los carteles de la colección del MIT Museum.",
       "A catalog of components for building physical AI and robotics, organized by function and filtered by the specifications that actually decide a choice.":
         "Un catálogo de componentes para construir IA física y robótica, organizado por función y filtrado por las especificaciones que de verdad deciden una elección.",
       "215 components across 131 families, each carrying the supplier's public reference price, the date it was observed, and a link back to the manufacturer. Nothing is sold here yet: the call to action is a quote list, and a part with no public price says so instead of guessing one.":

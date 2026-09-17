@@ -76,6 +76,17 @@ GLYPHS = {
 <rect x="128" y="112" width="56" height="34" rx="5" fill="currentColor"/>
 <rect x="56" y="158" width="128" height="20" rx="5" fill="currentColor"/>
 </svg>''',
+"nine-into-one": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<rect x="26" y="42" width="14" height="156" fill="currentColor"/>
+<rect x="56" y="42" width="14" height="156" fill="currentColor"/>
+<rect x="84" y="42" width="14" height="156" fill="currentColor"/>
+<rect x="110" y="42" width="14" height="156" fill="currentColor"/>
+<rect x="134" y="42" width="14" height="156" fill="currentColor"/>
+<rect x="156" y="42" width="14" height="156" fill="currentColor"/>
+<rect x="174" y="42" width="14" height="156" fill="currentColor"/>
+<rect x="188" y="42" width="14" height="156" fill="currentColor"/>
+<rect x="202" y="42" width="14" height="156" fill="currentColor"/>
+</svg>''',
 }
 
 PROJECTS = [
@@ -119,6 +130,10 @@ PROJECTS = [
       href="https://miro-marketplace.vercel.app",
       lead="A catalog of components for building physical AI and robotics, organized by function and filtered by the specifications that actually decide a choice.",
       body="215 components across 131 families, each carrying the supplier's public reference price, the date it was observed, and a link back to the manufacturer. Nothing is sold here yet: the call to action is a quote list, and a part with no public price says so instead of guessing one."),
+ dict(id="nine-into-one", name="Nine Into One", tag="Experiments",
+      href="https://five-into-one-casey.vercel.app",
+      lead="Nine posters by Jacqueline Casey, animated in the browser so they arrive one by one, stack, and collapse into a single image.",
+      body="The motion is a study of someone else's work: an existing WebGL opening was taken apart and kept whole — its shaders, its camera path, its timing — with the five photographs it shipped replaced by posters Casey designed at MIT between 1955 and 1989. Forty-five posters were pulled from the archive and laid out on contact sheets before nine were chosen, weighted toward how each one holds up in grayscale: the sequence drains the color out and only gives it back to the cover as it fills the screen. Built with Three.js and GSAP, with no build step. Poster images from the MIT Museum collection."),
 ]
 
 ARROW = ('<svg class="arrow" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">'
@@ -249,7 +264,7 @@ html = f'''<!DOCTYPE html>
     <div class="index-col" id="projects">
       <div class="index-col__head rise" style="--i:5">
         <span class="label">Index</span>
-        <span class="label">09 projects</span>
+        <span class="label">10 projects</span>
       </div>
       <h2 class="sr-only">Projects</h2>
       <div class="index" id="index">
