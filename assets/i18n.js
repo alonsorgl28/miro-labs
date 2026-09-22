@@ -130,8 +130,8 @@
         "Notas",
       "Index":
         "Índice",
-      "10 projects":
-        "10 proyectos",
+      "11 projects":
+        "11 proyectos",
       "Open project":
         "Abrir proyecto",
       "Back to the top":
@@ -156,6 +156,12 @@
         "Robótica",
       "Experiments":
         "Experimentos",
+      "Color":
+        "Color",
+      "The 348 color combinations of Sanzo Wada's 1933 dictionary, rebuilt from a scan of the book into a page you can search, filter and copy from.":
+        "Las 348 combinaciones de color del diccionario de Sanzo Wada de 1933, reconstruidas desde un escaneo del libro como una página que se puede buscar, filtrar y copiar.",
+      "Every plate is set the way the book sets it, cross layout and all, with the names printed underneath. Each swatch is identified by that printed name and never by its scanned color: a scanner dulls the inks, and matching by appearance confuses a Jasper Red with an English Red. Of the 1,032 swatches, 834 came from the printed captions and 198 were transcribed by hand, then 84 plates were checked against the original page one by one. Hex values come from the CMYK formulas the book prints in its own index. The combinations and the 159 colors download as CSV, JSON, ASE and GPL.":
+        "Cada lámina está montada como la monta el libro, montaje en cruz incluido, con los nombres impresos debajo. Cada muestra se identifica por ese nombre impreso y nunca por su color escaneado: el escáner apaga las tintas, y emparejar por apariencia confunde un Jasper Red con un English Red. De las 1.032 muestras, 834 salieron de los pies impresos y 198 se transcribieron a mano; después se verificaron 84 láminas contra la página original, una por una. Los hex vienen de las fórmulas CMYK que el propio libro imprime en su índice. Las combinaciones y los 159 colores se descargan en CSV, JSON, ASE y GPL.",
       "Nine posters by Jacqueline Casey, animated in the browser so they arrive one by one, stack, and collapse into a single image.":
         "Nueve carteles de Jacqueline Casey, animados en el navegador para que lleguen uno a uno, se apilen y se derrumben en una sola imagen.",
       "The motion is a study of someone else's work: an existing WebGL opening was taken apart and kept whole — its shaders, its camera path, its timing — with the five photographs it shipped replaced by posters Casey designed at MIT between 1955 and 1989. Forty-five posters were pulled from the archive and laid out on contact sheets before nine were chosen, weighted toward how each one holds up in grayscale: the sequence drains the color out and only gives it back to the cover as it fills the screen. Built with Three.js and GSAP, with no build step. Poster images from the MIT Museum collection.":

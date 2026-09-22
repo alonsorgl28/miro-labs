@@ -274,7 +274,7 @@ html = f'''<!DOCTYPE html>
     <div class="index-col" id="projects">
       <div class="index-col__head rise" style="--i:5">
         <span class="label">Index</span>
-        <span class="label">10 projects</span>
+        <span class="label">11 projects</span>
       </div>
       <h2 class="sr-only">Projects</h2>
       <div class="index" id="index">
