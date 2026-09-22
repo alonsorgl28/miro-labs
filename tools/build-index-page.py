@@ -87,6 +87,12 @@ GLYPHS = {
 <rect x="188" y="42" width="14" height="156" fill="currentColor"/>
 <rect x="202" y="42" width="14" height="156" fill="currentColor"/>
 </svg>''',
+"sanzo-wada": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<rect x="92" y="32" width="56" height="54" fill="currentColor"/>
+<rect x="28" y="93" width="86" height="54" fill="currentColor" opacity=".72"/>
+<rect x="126" y="93" width="86" height="54" fill="currentColor" opacity=".46"/>
+<rect x="92" y="154" width="56" height="54" fill="currentColor" opacity=".28"/>
+</svg>''',
 }
 
 PROJECTS = [
@@ -134,6 +140,10 @@ PROJECTS = [
       href="https://five-into-one-casey.vercel.app",
       lead="Nine posters by Jacqueline Casey, animated in the browser so they arrive one by one, stack, and collapse into a single image.",
       body="The motion is a study of someone else's work: an existing WebGL opening was taken apart and kept whole — its shaders, its camera path, its timing — with the five photographs it shipped replaced by posters Casey designed at MIT between 1955 and 1989. Forty-five posters were pulled from the archive and laid out on contact sheets before nine were chosen, weighted toward how each one holds up in grayscale: the sequence drains the color out and only gives it back to the cover as it fills the screen. Built with Three.js and GSAP, with no build step. Poster images from the MIT Museum collection."),
+ dict(id="sanzo-wada", name="Sanzo Wada", tag="Color",
+      href="https://sanzo-wada-chi.vercel.app",
+      lead="The 348 color combinations of Sanzo Wada's 1933 dictionary, rebuilt from a scan of the book into a page you can search, filter and copy from.",
+      body="Every plate is set the way the book sets it, cross layout and all, with the names printed underneath. Each swatch is identified by that printed name and never by its scanned color: a scanner dulls the inks, and matching by appearance confuses a Jasper Red with an English Red. Of the 1,032 swatches, 834 came from the printed captions and 198 were transcribed by hand, then 84 plates were checked against the original page one by one. Hex values come from the CMYK formulas the book prints in its own index. The combinations and the 159 colors download as CSV, JSON, ASE and GPL."),
 ]
 
 ARROW = ('<svg class="arrow" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">'
