@@ -158,6 +158,12 @@
         "Experimentos",
       "Mechanics":
         "Mecánica",
+      "Resins":
+        "Resinas",
+      "A searchable index of the print settings HARZ Labs publishes for its resins, across 37 Phrozen and Elegoo printers.":
+        "Un índice consultable de los parámetros de impresión que HARZ Labs publica para sus resinas, en 37 impresoras Phrozen y Elegoo.",
+      "1,703 printer and resin pairs, 63 resins, with exposure, bottom layers and lift and retract speeds at every layer height the manufacturer lists. Browse by printer or by resin to see one material across every machine. Every figure is copied from the manufacturer's own tables, never estimated: a setting that is not published stays empty. Retrieved from harzlabs.com on September 17, 2026.":
+        "1.703 combinaciones de impresora y resina, 63 resinas, con exposición, capas base y velocidades de subida y bajada en cada altura de capa que publica el fabricante. Se puede navegar por impresora o por resina, para ver un mismo material en todas las máquinas. Cada cifra está copiada de las tablas del propio fabricante, nunca estimada: un parámetro que no se publica queda vacío. Extraído de harzlabs.com el 17 de septiembre de 2026.",
       "The Seiko Presage «Mojito» rebuilt in 3D from Seiko's product photos, with an exploded view that opens the case and the automatic calibre down to the last wheel.":
         "El Seiko Presage «Mojito» reconstruido en 3D a partir de las fotos oficiales de Seiko, con un despiece que abre la caja y el calibre automático hasta la última rueda.",
       "Every part can be isolated and studied up close: the green kiriko dial, the box crystal, the padded strap and its folding clasp, and the 4R35 movement with its rotor, gear train, escapement and balance. The dial is the photograph itself with the hands removed, and the head's silhouette matches Seiko's side view to 89%. The gear train runs at the real calibre's speeds, and an essay explains it chapter by chapter, with an escapement computed from contact rather than animated by hand. Tooth counts and wheel layout are a readable approximation; Seiko does not publish them.":
