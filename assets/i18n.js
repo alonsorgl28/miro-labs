@@ -130,8 +130,8 @@
         "Notas",
       "Index":
         "Índice",
-      "11 projects":
-        "11 proyectos",
+      "12 projects":
+        "12 proyectos",
       "Open project":
         "Abrir proyecto",
       "Back to the top":
@@ -156,6 +156,12 @@
         "Robótica",
       "Experiments":
         "Experimentos",
+      "Mechanics":
+        "Mecánica",
+      "The Seiko Presage «Mojito» rebuilt in 3D from Seiko's product photos, with an exploded view that opens the case and the automatic calibre down to the last wheel.":
+        "El Seiko Presage «Mojito» reconstruido en 3D a partir de las fotos oficiales de Seiko, con un despiece que abre la caja y el calibre automático hasta la última rueda.",
+      "Every part can be isolated and studied up close: the green kiriko dial, the box crystal, the padded strap and its folding clasp, and the 4R35 movement with its rotor, gear train, escapement and balance. The dial is the photograph itself with the hands removed, and the head's silhouette matches Seiko's side view to 89%. The gear train runs at the real calibre's speeds, and an essay explains it chapter by chapter, with an escapement computed from contact rather than animated by hand. Tooth counts and wheel layout are a readable approximation; Seiko does not publish them.":
+        "Cada pieza se puede aislar y estudiar de cerca: la esfera verde tipo kiriko, el cristal en caja, la correa acolchada con su cierre desplegable y el calibre 4R35 con su rotor, tren de ruedas, escape y volante. La esfera es la propia fotografía sin las agujas, y la silueta de la cabeza coincide con la vista lateral de Seiko en un 89 %. El tren gira a las velocidades reales del calibre, y un ensayo lo explica capítulo a capítulo, con un escape calculado por contacto y no animado a mano. El número de dientes y la posición de las ruedas son una aproximación legible: Seiko no los publica.",
       "Color":
         "Color",
       "The 348 color combinations of Sanzo Wada's 1933 dictionary, rebuilt from a scan of the book into a page you can search, filter and copy from.":

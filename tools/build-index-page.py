@@ -93,6 +93,15 @@ GLYPHS = {
 <rect x="126" y="93" width="86" height="54" fill="currentColor" opacity=".46"/>
 <rect x="92" y="154" width="56" height="54" fill="currentColor" opacity=".28"/>
 </svg>''',
+"seiko-mojito": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<rect x="96" y="20" width="48" height="30" rx="4" fill="currentColor" opacity=".46"/>
+<rect x="96" y="190" width="48" height="30" rx="4" fill="currentColor" opacity=".46"/>
+<circle cx="120" cy="120" r="74" fill="none" stroke="currentColor" stroke-width="14"/>
+<rect x="194" y="108" width="18" height="24" rx="3" fill="currentColor"/>
+<rect x="114" y="66" width="12" height="60" rx="6" fill="currentColor"/>
+<rect x="114" y="114" width="12" height="46" rx="6" fill="currentColor" transform="rotate(-60 120 120)"/>
+<circle cx="120" cy="120" r="10" fill="currentColor"/>
+</svg>''',
 }
 
 PROJECTS = [
@@ -144,6 +153,10 @@ PROJECTS = [
       href="https://sanzo-wada-chi.vercel.app",
       lead="The 348 color combinations of Sanzo Wada's 1933 dictionary, rebuilt from a scan of the book into a page you can search, filter and copy from.",
       body="Every plate is set the way the book sets it, cross layout and all, with the names printed underneath. Each swatch is identified by that printed name and never by its scanned color: a scanner dulls the inks, and matching by appearance confuses a Jasper Red with an English Red. Of the 1,032 swatches, 834 came from the printed captions and 198 were transcribed by hand, then 84 plates were checked against the original page one by one. Hex values come from the CMYK formulas the book prints in its own index. The combinations and the 159 colors download as CSV, JSON, ASE and GPL."),
+ dict(id="seiko-mojito", name="Seiko Mojito", tag="Mechanics",
+      href="https://seiko-mojito-despiece.vercel.app",
+      lead="The Seiko Presage «Mojito» rebuilt in 3D from Seiko's product photos, with an exploded view that opens the case and the automatic calibre down to the last wheel.",
+      body="Every part can be isolated and studied up close: the green kiriko dial, the box crystal, the padded strap and its folding clasp, and the 4R35 movement with its rotor, gear train, escapement and balance. The dial is the photograph itself with the hands removed, and the head's silhouette matches Seiko's side view to 89%. The gear train runs at the real calibre's speeds, and an essay explains it chapter by chapter, with an escapement computed from contact rather than animated by hand. Tooth counts and wheel layout are a readable approximation; Seiko does not publish them."),
 ]
 
 ARROW = ('<svg class="arrow" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">'
@@ -274,7 +287,7 @@ html = f'''<!DOCTYPE html>
     <div class="index-col" id="projects">
       <div class="index-col__head rise" style="--i:5">
         <span class="label">Index</span>
-        <span class="label">11 projects</span>
+        <span class="label">12 projects</span>
       </div>
       <h2 class="sr-only">Projects</h2>
       <div class="index" id="index">
