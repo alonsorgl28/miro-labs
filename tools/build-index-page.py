@@ -3,6 +3,16 @@ import io, os
 from build_labs_lettering import lockup
 
 GLYPHS = {
+"all-the-books": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<rect x="28" y="74" width="24" height="130" rx="4" fill="currentColor"/>
+<rect x="58" y="44" width="24" height="160" rx="4" fill="currentColor"/>
+<rect x="88" y="92" width="24" height="112" rx="4" fill="currentColor"/>
+<rect x="118" y="58" width="24" height="146" rx="4" fill="currentColor"/>
+<rect x="148" y="84" width="24" height="120" rx="4" fill="currentColor" opacity=".46"/>
+<rect x="180" y="190" width="38" height="10" rx="3" fill="currentColor" transform="rotate(-14 199 195)"/>
+<rect x="184" y="164" width="28" height="10" rx="3" fill="currentColor" opacity=".72" transform="rotate(22 198 169)"/>
+<rect x="188" y="138" width="20" height="9" rx="3" fill="currentColor" opacity=".46" transform="rotate(-30 198 142)"/>
+</svg>''',
 "shelvd-studio": '''<svg viewBox="0 0 236 204" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <path d="M43.9999 182.012C43.9999 194.155 34.1502 204 22 204C9.84972 204 1.40712e-07 194.155 -3.90111e-07 182.012L8.67059e-05 69.9881C8.61751e-05 57.8443 9.8498 47.9998 22 47.9998C34.1503 47.9998 44 57.8443 44 69.9881L43.9999 182.012Z" fill="currentColor"/>
 <path d="M236 134.012C236 146.155 226.15 156 214 156C201.85 156 192 146.155 192 134.012L192 21.9881C192 9.84429 201.85 -0.000205381 214 -0.000205912C226.15 -0.000206443 236 9.84429 236 21.9881L236 134.012Z" fill="currentColor"/>
@@ -113,6 +123,10 @@ GLYPHS = {
 }
 
 PROJECTS = [
+ dict(id="all-the-books", name="All the Books in the World", tag="Essays",
+      href="https://alonsorivera.vercel.app/all-the-books-in-the-world/",
+      lead="An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.",
+      body="Built from the court records: the seven million pirated copies Anthropic downloaded and the used books it later cut apart and scanned, OpenAI's Books1 and Books2, and the Internet Archive library that lost the same argument. Every claim links to its source, in English and Spanish, with illustrations by the author."),
  dict(id="teqvita-studio", name="Teqvita Studio", tag="3D",
       href="https://teqvita-studio.vercel.app",
       lead="A generative 3D studio that turns prompts, photos, or voice into editable models.",
@@ -299,7 +313,7 @@ html = f'''<!DOCTYPE html>
     <div class="index-col" id="projects">
       <div class="index-col__head rise" style="--i:5">
         <span class="label">Index</span>
-        <span class="label">13 projects</span>
+        <span class="label">14 projects</span>
       </div>
       <h2 class="sr-only">Projects</h2>
       <div class="index" id="index">

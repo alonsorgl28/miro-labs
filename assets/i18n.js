@@ -130,6 +130,14 @@
         "Notas",
       "Index":
         "Índice",
+      "14 projects":
+        "14 proyectos",
+      "Essays":
+        "Ensayos",
+      "An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.":
+        "Un ensayo sobre cómo Anthropic y OpenAI consiguieron los millones de libros detrás de su IA, y por qué un tribunal dijo que destruirlos ayudó a que fuera legal.",
+      "Built from the court records: the seven million pirated copies Anthropic downloaded and the used books it later cut apart and scanned, OpenAI's Books1 and Books2, and the Internet Archive library that lost the same argument. Every claim links to its source, in English and Spanish, with illustrations by the author.":
+        "Construido a partir de los expedientes judiciales: los siete millones de copias piratas que descargó Anthropic y los libros usados que después desarmó y escaneó, Books1 y Books2 de OpenAI, y la biblioteca del Internet Archive que perdió el mismo argumento. Cada afirmación enlaza a su fuente, en inglés y en español, con ilustraciones del autor.",
       "12 projects":
         "12 proyectos",
       "Open project":
