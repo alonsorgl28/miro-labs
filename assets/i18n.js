@@ -136,10 +136,10 @@
         "Patrones",
       "Design":
         "Diseño",
-      "Upload a record or book cover and turn its colors into abstract patterns and posters.":
-        "Sube la portada de un disco o un libro y convierte sus colores en patrones abstractos y pósters.",
-      "The palette is measured from the cover itself: each color keeps the share of the cover it takes up, and every pixel of the pattern is one of those colors. 39 styles across eight families, from marbled paper and woven textiles to op-art, type collage and supergraphics, exported as a poster or a bare pattern in square, portrait, story or landscape formats, up to 3000 px. Everything runs in your browser.":
-        "La paleta se mide en la propia portada: cada color conserva la parte de la portada que ocupa, y cada píxel del patrón es uno de esos colores. 39 estilos en ocho familias, del papel marmoleado y los tejidos al op-art, el collage tipográfico y los supergráficos, que se exportan como póster o como patrón en formato cuadrado, vertical, historia o apaisado, hasta 3000 px. Todo corre en tu navegador.",
+      "Upload a record, book or graphic novel cover, or an artwork, and turn its colors into abstract patterns, posters and short videos.":
+        "Sube la portada de un disco, un libro o una novela gráfica, o una obra de arte, y convierte sus colores en patrones abstractos, pósters y videos cortos.",
+      "The palette is measured from the image itself: each color keeps the share of the image it takes up, and every pixel of the pattern is one of those colors. Crop the image or pick colors by hand. 39 styles across eight families, from marbled paper and woven textiles to op-art, type collage and supergraphics, exported as a poster, a bare pattern or a motion video in square, portrait, story or landscape formats. Everything runs in your browser.":
+        "La paleta se mide en la propia imagen: cada color conserva la parte de la imagen que ocupa, y cada píxel del patrón es uno de esos colores. Puedes recortar la imagen o elegir colores a mano. 39 estilos en ocho familias, del papel marmoleado y los tejidos al op-art, el collage tipográfico y los supergráficos, que se exportan como póster, como patrón o como video en formato cuadrado, vertical, historia o apaisado. Todo corre en tu navegador.",
       "Essays":
         "Ensayos",
       "An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.":
