@@ -130,8 +130,14 @@
         "Notas",
       "Index":
         "Índice",
-      "14 projects":
-        "14 proyectos",
+      "15 projects":
+        "15 proyectos",
+      "Patterns":
+        "Patrones",
+      "Upload a record or book cover and turn its colors into abstract patterns and posters.":
+        "Sube la portada de un disco o un libro y convierte sus colores en patrones abstractos y pósters.",
+      "The palette is measured from the cover itself: each color keeps the share of the cover it takes up, and every pixel of the pattern is one of those colors. 21 styles inspired by playgrnd.tools, from marbled paper to op-art and type collage, exported as a poster or a bare pattern in square, portrait, story or landscape formats, up to 3000 px. Everything runs in your browser.":
+        "La paleta se mide en la propia portada: cada color conserva la parte de la portada que ocupa, y cada píxel del patrón es uno de esos colores. 21 estilos inspirados en playgrnd.tools, del papel marmoleado al op-art y el collage tipográfico, que se exportan como póster o como patrón en formato cuadrado, vertical, historia o apaisado, hasta 3000 px. Todo corre en tu navegador.",
       "Essays":
         "Ensayos",
       "An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.":

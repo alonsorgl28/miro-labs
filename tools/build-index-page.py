@@ -3,6 +3,16 @@ import io, os
 from build_labs_lettering import lockup
 
 GLYPHS = {
+"pattern-studio": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<path d="M24 24H96A72 72 0 0 1 24 96Z" fill="currentColor"/>
+<circle cx="156" cy="60" r="36" fill="currentColor" opacity=".46"/>
+<rect x="192" y="24" width="24" height="72" rx="4" fill="currentColor"/>
+<rect x="24" y="120" width="72" height="24" rx="4" fill="currentColor" opacity=".72"/>
+<rect x="24" y="156" width="72" height="24" rx="4" fill="currentColor"/>
+<rect x="24" y="192" width="72" height="24" rx="4" fill="currentColor" opacity=".46"/>
+<path d="M120 216V120A96 96 0 0 1 216 216Z" fill="currentColor"/>
+<circle cx="156" cy="180" r="14" fill="currentColor" opacity=".46"/>
+</svg>''',
 "all-the-books": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <rect x="28" y="74" width="24" height="130" rx="4" fill="currentColor"/>
 <rect x="58" y="44" width="24" height="160" rx="4" fill="currentColor"/>
@@ -123,6 +133,10 @@ GLYPHS = {
 }
 
 PROJECTS = [
+ dict(id="pattern-studio", name="Pattern Studio", tag="Patterns",
+      href="https://pattern-studio-rosy.vercel.app",
+      lead="Upload a record or book cover and turn its colors into abstract patterns and posters.",
+      body="The palette is measured from the cover itself: each color keeps the share of the cover it takes up, and every pixel of the pattern is one of those colors. 21 styles inspired by playgrnd.tools, from marbled paper to op-art and type collage, exported as a poster or a bare pattern in square, portrait, story or landscape formats, up to 3000 px. Everything runs in your browser."),
  dict(id="all-the-books", name="All the Books in the World", tag="Essays",
       href="https://alonsorivera.vercel.app/all-the-books-in-the-world/",
       lead="An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.",
@@ -313,7 +327,7 @@ html = f'''<!DOCTYPE html>
     <div class="index-col" id="projects">
       <div class="index-col__head rise" style="--i:5">
         <span class="label">Index</span>
-        <span class="label">14 projects</span>
+        <span class="label">15 projects</span>
       </div>
       <h2 class="sr-only">Projects</h2>
       <div class="index" id="index">
