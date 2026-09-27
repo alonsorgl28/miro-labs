@@ -133,10 +133,10 @@ GLYPHS = {
 }
 
 PROJECTS = [
- dict(id="pattern-studio", name="Pattern Studio", tag="Patterns",
+ dict(id="pattern-studio", name="Patterns", tag="Design",
       href="https://pattern-studio-rosy.vercel.app",
       lead="Upload a record or book cover and turn its colors into abstract patterns and posters.",
-      body="The palette is measured from the cover itself: each color keeps the share of the cover it takes up, and every pixel of the pattern is one of those colors. 21 styles inspired by playgrnd.tools, from marbled paper to op-art and type collage, exported as a poster or a bare pattern in square, portrait, story or landscape formats, up to 3000 px. Everything runs in your browser."),
+      body="The palette is measured from the cover itself: each color keeps the share of the cover it takes up, and every pixel of the pattern is one of those colors. 39 styles across eight families, from marbled paper and woven textiles to op-art, type collage and supergraphics, exported as a poster or a bare pattern in square, portrait, story or landscape formats, up to 3000 px. Everything runs in your browser."),
  dict(id="all-the-books", name="All the Books in the World", tag="Essays",
       href="https://alonsorivera.vercel.app/all-the-books-in-the-world/",
       lead="An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.",
