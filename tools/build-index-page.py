@@ -13,6 +13,12 @@ GLYPHS = {
 <path d="M120 216V120A96 96 0 0 1 216 216Z" fill="currentColor"/>
 <circle cx="156" cy="180" r="14" fill="currentColor" opacity=".46"/>
 </svg>''',
+"tipos": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<rect x="24" y="24" width="192" height="48" rx="4" fill="currentColor"/>
+<rect x="96" y="72" width="48" height="144" rx="4" fill="currentColor" opacity=".72"/>
+<circle cx="192" cy="180" r="24" fill="currentColor" opacity=".46"/>
+<path d="M24 216V120A96 96 0 0 1 72 132V216Z" fill="currentColor" opacity=".46"/>
+</svg>''',
 "all-the-books": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <rect x="28" y="74" width="24" height="130" rx="4" fill="currentColor"/>
 <rect x="58" y="44" width="24" height="160" rx="4" fill="currentColor"/>
@@ -137,6 +143,10 @@ PROJECTS = [
       href="https://pattern-studio-rosy.vercel.app",
       lead="Upload a record, book or graphic novel cover, or an artwork, and turn its colors into abstract patterns, posters and short videos.",
       body="The palette is measured from the image itself: each color keeps the share of the image it takes up, and every pixel of the pattern is one of those colors. Crop the image or pick colors by hand. 39 styles across eight families, from marbled paper and woven textiles to op-art, type collage and supergraphics, exported as a poster, a bare pattern or a motion video in square, portrait, story or landscape formats. Everything runs in your browser."),
+ dict(id="tipos", name="Type", tag="Typography",
+      href="https://tipos-wheat.vercel.app",
+      lead="Type a word and see it in 31 free fonts grouped by school, then turn it into a poster with the colors of a cover or an artwork.",
+      body="From Swiss grotesques and Bauhaus geometrics to seventies soft serifs, op-art and signage lettering, every font is free to use under the SIL Open Font License and checked for Spanish accents. Nine composition programs follow rules from Bringhurst, Gerstner and Müller-Brockmann. The inspiration comes from the lettering of records and paintings: Claude describes each one and finds its closest fonts. Everything runs in your browser."),
  dict(id="all-the-books", name="All the Books in the World", tag="Essays",
       href="https://alonsorivera.vercel.app/all-the-books-in-the-world/",
       lead="An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.",
@@ -327,7 +337,7 @@ html = f'''<!DOCTYPE html>
     <div class="index-col" id="projects">
       <div class="index-col__head rise" style="--i:5">
         <span class="label">Index</span>
-        <span class="label">15 projects</span>
+        <span class="label">16 projects</span>
       </div>
       <h2 class="sr-only">Projects</h2>
       <div class="index" id="index">

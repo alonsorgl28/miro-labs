@@ -130,8 +130,8 @@
         "Notas",
       "Index":
         "Índice",
-      "15 projects":
-        "15 proyectos",
+      "16 projects":
+        "16 proyectos",
       "Patterns":
         "Patrones",
       "Design":
@@ -140,6 +140,14 @@
         "Sube la portada de un disco, un libro o una novela gráfica, o una obra de arte, y convierte sus colores en patrones abstractos, pósters y videos cortos.",
       "The palette is measured from the image itself: each color keeps the share of the image it takes up, and every pixel of the pattern is one of those colors. Crop the image or pick colors by hand. 39 styles across eight families, from marbled paper and woven textiles to op-art, type collage and supergraphics, exported as a poster, a bare pattern or a motion video in square, portrait, story or landscape formats. Everything runs in your browser.":
         "La paleta se mide en la propia imagen: cada color conserva la parte de la imagen que ocupa, y cada píxel del patrón es uno de esos colores. Puedes recortar la imagen o elegir colores a mano. 39 estilos en ocho familias, del papel marmoleado y los tejidos al op-art, el collage tipográfico y los supergráficos, que se exportan como póster, como patrón o como video en formato cuadrado, vertical, historia o apaisado. Todo corre en tu navegador.",
+      "Type":
+        "Tipos",
+      "Typography":
+        "Tipografía",
+      "Type a word and see it in 31 free fonts grouped by school, then turn it into a poster with the colors of a cover or an artwork.":
+        "Escribe una palabra y mírala en 31 fuentes libres agrupadas por escuela; luego conviértela en un póster con los colores de una portada o una obra.",
+      "From Swiss grotesques and Bauhaus geometrics to seventies soft serifs, op-art and signage lettering, every font is free to use under the SIL Open Font License and checked for Spanish accents. Nine composition programs follow rules from Bringhurst, Gerstner and Müller-Brockmann. The inspiration comes from the lettering of records and paintings: Claude describes each one and finds its closest fonts. Everything runs in your browser.":
+        "De las grotescas suizas y las geométricas de la Bauhaus a las serifas blandas de los setenta, el op-art y el rótulo, todas las fuentes son de uso libre con la SIL Open Font License y están revisadas con tildes y eñes. Nueve programas de composición siguen reglas de Bringhurst, Gerstner y Müller-Brockmann. La inspiración sale de las letras de discos y pinturas: Claude describe cada una y encuentra sus fuentes más parecidas. Todo corre en tu navegador.",
       "Essays":
         "Ensayos",
       "An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.":
