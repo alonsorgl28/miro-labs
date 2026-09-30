@@ -19,6 +19,12 @@ GLYPHS = {
 <circle cx="192" cy="180" r="24" fill="currentColor" opacity=".46"/>
 <path d="M24 216V120A96 96 0 0 1 72 132V216Z" fill="currentColor" opacity=".46"/>
 </svg>''',
+"componentes": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<rect x="24" y="24" width="88" height="88" rx="20" fill="currentColor"/>
+<rect x="128" y="24" width="88" height="88" rx="44" fill="currentColor" opacity=".46"/>
+<rect x="24" y="128" width="88" height="88" rx="20" fill="currentColor" opacity=".72"/>
+<rect x="128" y="128" width="88" height="88" rx="20" fill="currentColor"/>
+</svg>''',
 "all-the-books": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <rect x="28" y="74" width="24" height="130" rx="4" fill="currentColor"/>
 <rect x="58" y="44" width="24" height="160" rx="4" fill="currentColor"/>
@@ -147,6 +153,10 @@ PROJECTS = [
       href="https://tipos-wheat.vercel.app",
       lead="Type a word and see it in 31 free fonts grouped by school, then turn it into a poster with the colors of a cover or an artwork.",
       body="From Swiss grotesques and Bauhaus geometrics to seventies soft serifs, op-art and signage lettering, every font is free to use under the SIL Open Font License and checked for Spanish accents. Nine composition programs follow rules from Bringhurst, Gerstner and Müller-Brockmann. The inspiration comes from the lettering of records and paintings: Claude describes each one and finds its closest fonts. Everything runs in your browser."),
+    dict(id="componentes", name="Components", tag="Interface",
+      href="https://componentes-lovat.vercel.app",
+      lead="The 20 components you reach for when building a website, rebuilt without dependencies so you can try them live and copy them.",
+      body="Buttons, fields, menus, dialogs, tabs, toasts, tables and more, with the design of coss ui (formerly Origin UI) translated into plain HTML, CSS and JavaScript. Each one is built on the browser's own elements, so it works with the keyboard, screen readers and AI agents, in light and dark. Every page has a live preview, the code by file or in one piece, and a version for agents."),
  dict(id="all-the-books", name="All the Books in the World", tag="Essays",
       href="https://alonsorivera.vercel.app/all-the-books-in-the-world/",
       lead="An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.",
@@ -337,7 +347,7 @@ html = f'''<!DOCTYPE html>
     <div class="index-col" id="projects">
       <div class="index-col__head rise" style="--i:5">
         <span class="label">Index</span>
-        <span class="label">16 projects</span>
+        <span class="label">17 projects</span>
       </div>
       <h2 class="sr-only">Projects</h2>
       <div class="index" id="index">

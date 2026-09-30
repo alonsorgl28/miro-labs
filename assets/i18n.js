@@ -130,8 +130,8 @@
         "Notas",
       "Index":
         "Índice",
-      "16 projects":
-        "16 proyectos",
+      "17 projects":
+        "17 proyectos",
       "Patterns":
         "Patrones",
       "Design":
@@ -140,6 +140,14 @@
         "Sube la portada de un disco, un libro o una novela gráfica, o una obra de arte, y convierte sus colores en patrones abstractos, pósters y videos cortos.",
       "The palette is measured from the image itself: each color keeps the share of the image it takes up, and every pixel of the pattern is one of those colors. Crop the image or pick colors by hand. 39 styles across eight families, from marbled paper and woven textiles to op-art, type collage and supergraphics, exported as a poster, a bare pattern or a motion video in square, portrait, story or landscape formats. Everything runs in your browser.":
         "La paleta se mide en la propia imagen: cada color conserva la parte de la imagen que ocupa, y cada píxel del patrón es uno de esos colores. Puedes recortar la imagen o elegir colores a mano. 39 estilos en ocho familias, del papel marmoleado y los tejidos al op-art, el collage tipográfico y los supergráficos, que se exportan como póster, como patrón o como video en formato cuadrado, vertical, historia o apaisado. Todo corre en tu navegador.",
+      "Components":
+        "Componentes",
+      "Interface":
+        "Interfaz",
+      "The 20 components you reach for when building a website, rebuilt without dependencies so you can try them live and copy them.":
+        "Los 20 componentes que usas al armar una web, rehechos sin dependencias para que los pruebes en vivo y los copies.",
+      "Buttons, fields, menus, dialogs, tabs, toasts, tables and more, with the design of coss ui (formerly Origin UI) translated into plain HTML, CSS and JavaScript. Each one is built on the browser's own elements, so it works with the keyboard, screen readers and AI agents, in light and dark. Every page has a live preview, the code by file or in one piece, and a version for agents.":
+        "Botones, campos, menús, diálogos, pestañas, avisos, tablas y más, con el diseño de coss ui (antes Origin UI) traducido a HTML, CSS y JavaScript sin nada más. Cada uno está hecho sobre los elementos del navegador, así que funciona con teclado, lector de pantalla y agentes de IA, en claro y oscuro. Cada página tiene la vista previa en vivo, el código por archivo o en una sola pieza, y una versión para agentes.",
       "Type":
         "Tipos",
       "Typography":
