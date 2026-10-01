@@ -144,10 +144,10 @@
         "Componentes",
       "Interface":
         "Interfaz",
-      "The 20 components you reach for when building a website, rebuilt without dependencies so you can try them live and copy them.":
-        "Los 20 componentes que usas al armar una web, rehechos sin dependencias para que los pruebes en vivo y los copies.",
-      "Buttons, fields, menus, dialogs, tabs, toasts, tables and more, with the design of coss ui (formerly Origin UI) translated into plain HTML, CSS and JavaScript. Each one is built on the browser's own elements, so it works with the keyboard, screen readers and AI agents, in light and dark. Every page has a live preview, the code by file or in one piece, and a version for agents.":
-        "Botones, campos, menús, diálogos, pestañas, avisos, tablas y más, con el diseño de coss ui (antes Origin UI) traducido a HTML, CSS y JavaScript sin nada más. Cada uno está hecho sobre los elementos del navegador, así que funciona con teclado, lector de pantalla y agentes de IA, en claro y oscuro. Cada página tiene la vista previa en vivo, el código por archivo o en una sola pieza, y una versión para agentes.",
+      "The components and page sections you reach for when building a website, rebuilt without dependencies so you can try them live and copy them.":
+        "Los componentes y las secciones que usas al armar una web, rehechos sin dependencias para que los pruebes en vivo y los copies.",
+      "Buttons, fields, menus, dialogs and tables, plus ten page sections from hero to footer, with the design of coss ui and Tailark translated into plain HTML, CSS and JavaScript. Each one is built on the browser's own elements, so it works with the keyboard, screen readers and AI agents, in light and dark. Every page has a live preview, the code by file or in one piece, and a version for agents.":
+        "Botones, campos, menús, diálogos y tablas, más diez secciones de página del hero al footer, con el diseño de coss ui y Tailark traducido a HTML, CSS y JavaScript sin nada más. Cada uno está hecho sobre los elementos del navegador, así que funciona con teclado, lector de pantalla y agentes de IA, en claro y oscuro. Cada página tiene la vista previa en vivo, el código por archivo o en una sola pieza, y una versión para agentes.",
       "Type":
         "Tipos",
       "Typography":
