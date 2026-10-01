@@ -1,0 +1,38 @@
+# Sistema de diseño de MIRÓ Labs
+
+> Cuatro herramientas y un punto de vista para que un agente construya webs con autor: landings, dashboards, herramientas, páginas editoriales y piezas gráficas. Curado por Alonso Rivera. Su palabra es curiosidad: lo raro tratado con rigor.
+
+## Empieza aquí
+- [miro.json](miro.json): el índice. Punto de vista (creencias, prohibido, qué es bueno, oficio), las 4 herramientas con su catálogo, 5 recetas (landing, dashboard, herramienta, editorial, póster), el flujo de trabajo y las preguntas para el usuario.
+- No cargues los cuatro catálogos enteros. Lee miro.json, elige la receta y pide a cada herramienta solo lo que esa receta necesita.
+
+## Las cuatro herramientas
+| Decide | Herramienta | Guía | Catálogo |
+| --- | --- | --- | --- |
+| Estructura e interfaz | Componentes | https://componentes-lovat.vercel.app/llms.txt | components.json (contexto, densidad, tono, cuando, cuando_no) |
+| Tipografía | Tipos | https://tipos-wheat.vercel.app/llms.txt | fonts/catalog.json (tono, rareza, texto_corrido, pares, css) |
+| Color | Sanzo Wada | https://sanzo-wada-chi.vercel.app/llms.txt | data/temas-sanzo-wada.json (temas acento e inmersivo, contraste medido) |
+| Gráfica | Patrones | https://pattern-studio-rosy.vercel.app/llms.txt | catalogo.json (usos, energía, densidad, texto_encima) |
+
+Todas comparten los nombres de variables de color de Componentes: un tema de Wada pinta los componentes, y patrones.js toma la misma combinación con `wada="NNN"`.
+
+## Flujo
+1. Lee el proyecto: qué es, para quién, qué contenido o datos tiene.
+2. Haz las preguntas de miro.json en un solo mensaje.
+3. Elige la receta y propone 2 o 3 direcciones (fuentes, combinación de Wada y modo, componentes, patrón), cada elección con su porqué.
+4. Un agente crítico revisa cada dirección contra `prohibido`, `que_es_bueno` y `oficio`.
+5. El usuario elige.
+6. Escribe el sistema del proyecto dentro del proyecto: `DESIGN.md` con las decisiones y su porqué, y los `<link>` y `<script>` listos.
+7. Construye. El crítico revisa el resultado antes de entregarlo.
+
+## Lo mínimo de una página hecha con el sistema
+```html
+<html lang="es" class="wada-147">
+<link rel="stylesheet" href="https://componentes-lovat.vercel.app/tokens.css">
+<link rel="stylesheet" href="https://sanzo-wada-chi.vercel.app/temas/147.css">
+<link rel="stylesheet" href="https://tipos-wheat.vercel.app/fonts/css/hanken-grotesk.css">
+<link rel="stylesheet" href="https://tipos-wheat.vercel.app/fonts/css/sinistre.css">
+<script src="https://pattern-studio-rosy.vercel.app/patrones.js"></script>
+<patron-fondo pattern="pebble" wada="147" seed="7"></patron-fondo>
+```
+Esta misma página (https://miro-labs.vercel.app/design/) está hecha así.

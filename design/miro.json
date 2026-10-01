@@ -1,0 +1,220 @@
+{
+ "$schema_note": "Índice del sistema de diseño de MIRÓ Labs para agentes. Léelo primero; después pide a cada herramienta solo lo que necesites.",
+ "nombre": "Sistema de diseño de MIRÓ Labs",
+ "version": 1,
+ "actualizado": "2026-09-30",
+ "autor": "Alonso Rivera (MIRÓ Labs)",
+ "guia": "https://miro-labs.vercel.app/design/llms.txt",
+ "punto_de_vista": {
+  "palabra": "curiosidad: lo raro tratado con rigor",
+  "creencias": [
+   "Lo raro, sobre una base clásica: una pieza rara al lado de una neo-grotesca legible y una retícula seria; nunca dos rarezas compitiendo.",
+   "El color se toma, no se inventa: de una combinación de Sanzo Wada o de la imagen del proyecto. Color plano.",
+   "Se diseña el sistema, no la pantalla: reglas que generan variantes (Gerstner, Casey).",
+   "Una idea por pantalla: poca información a la vista, un solo protagonista.",
+   "Hecho por alguien: cada web tiene un detalle que solo existe en su tema.",
+   "Que lo pueda usar todo el mundo: contraste 4,5:1, teclado, lector de pantalla y celular."
+  ],
+  "prohibido": [
+   "Inter o Space Grotesk elegidas por costumbre",
+   "degradados (en interfaz, como mucho líneas finas paralelas)",
+   "crema con serifa y acento terracota",
+   "emojis como íconos",
+   "todo centrado y tarjetas iguales con sombra",
+   "fuente display en párrafos o por debajo de 24 px",
+   "colores fuera de la combinación elegida",
+   "texto de relleno o cifras inventadas presentadas como reales",
+   "más de un momento animado por página",
+   "esquinas redondeadas o sombras en pósters y patrones (sí en interfaz)",
+   "poner el nombre de Alonso en algo que no aprobó"
+  ],
+  "que_es_bueno": [
+   "se entiende en tres segundos: un protagonista claro arriba",
+   "una fuente de texto y como mucho una display, elegidas por tono",
+   "todos los colores de una sola combinación de Wada",
+   "texto ≥ 4,5:1, titulares ≥ 3:1",
+   "como mucho dos patrones, nunca detrás de datos o texto largo",
+   "al menos un detalle propio del tema",
+   "celular sin scroll horizontal y teclado",
+   "recorrida como usuario: cada botón hace lo que dice"
+  ],
+  "oficio": [
+   "radio exterior = radio interior + margen",
+   "números tabulares en datos y contadores",
+   "titulares equilibrados, sin palabra sola al final",
+   "cerrar el espaciado del texto grande, abrir el de mayúsculas chicas",
+   "un solo juego de íconos, centrados a ojo",
+   "áreas de toque de 44 px en celular",
+   "el fondo del documento con el color del tema",
+   "borde interior tenue en fotos sobre fondo claro",
+   "salidas más rápidas que entradas; sin animación en interacciones frecuentes",
+   "la primera pantalla aparece completa y sin saltos"
+  ],
+  "editor": "Alonso aprueba, después de que un agente crítico revise que_es_bueno y oficio."
+ },
+ "herramientas": [
+  {
+   "id": "componentes",
+   "decide": "estructura e interfaz: secciones de landing, bloques de dashboard, formularios, navegación",
+   "web": "https://componentes-lovat.vercel.app",
+   "guia": "https://componentes-lovat.vercel.app/llms.txt",
+   "catalogo": "https://componentes-lovat.vercel.app/components.json",
+   "campos_para_elegir": [
+    "contexto (landing | herramienta | ambos)",
+    "densidad",
+    "tono",
+    "cuando",
+    "cuando_no"
+   ],
+   "base_css": "https://componentes-lovat.vercel.app/tokens.css"
+  },
+  {
+   "id": "tipos",
+   "decide": "tipografía: una fuente de texto y como mucho una display",
+   "web": "https://tipos-wheat.vercel.app",
+   "guia": "https://tipos-wheat.vercel.app/llms.txt",
+   "catalogo": "https://tipos-wheat.vercel.app/fonts/catalog.json",
+   "campos_para_elegir": [
+    "tono",
+    "rareza (1–5)",
+    "texto_corrido",
+    "usos",
+    "pares",
+    "evitar"
+   ],
+   "uso": "<link rel=\"stylesheet\" href=\"https://tipos-wheat.vercel.app/{css}\"> con el campo css de cada fuente"
+  },
+  {
+   "id": "wada",
+   "decide": "color: una combinación de Sanzo Wada como tema (acento o inmersivo)",
+   "web": "https://sanzo-wada-chi.vercel.app",
+   "guia": "https://sanzo-wada-chi.vercel.app/llms.txt",
+   "catalogo": "https://sanzo-wada-chi.vercel.app/data/temas-sanzo-wada.json",
+   "campos_para_elegir": [
+    "etiquetas (temperatura, luz, intensidad)",
+    "inmersivo.texto_neutro",
+    "inmersivo.contraste",
+    "número de colores (2–4)"
+   ],
+   "uso": "<link rel=\"stylesheet\" href=\"https://sanzo-wada-chi.vercel.app/temas/NNN.css\"> + class=\"wada-NNN\" (acento) o \"wada-NNN-inmersivo\" en <html>"
+  },
+  {
+   "id": "patrones",
+   "decide": "gráfica: un patrón generativo para hero, banda, fondo o textura",
+   "web": "https://pattern-studio-rosy.vercel.app",
+   "guia": "https://pattern-studio-rosy.vercel.app/llms.txt",
+   "catalogo": "https://pattern-studio-rosy.vercel.app/catalogo.json",
+   "campos_para_elegir": [
+    "usos",
+    "energia",
+    "densidad",
+    "texto_encima",
+    "se_repite"
+   ],
+   "uso": "<script src=\"https://pattern-studio-rosy.vercel.app/patrones.js\"></script> + <patron-fondo pattern=\"…\" wada=\"NNN\">"
+  }
+ ],
+ "recetas": {
+  "landing": {
+   "para": "presentar un producto, servicio o proyecto",
+   "componentes": [
+    "navbar",
+    "hero",
+    "features",
+    "stats",
+    "testimonials",
+    "pricing",
+    "faq",
+    "cta",
+    "footer"
+   ],
+   "tipografia": "display de rareza 3–5 elegida por tono para titulares grandes; texto de rareza 1–2 entre sus pares",
+   "color": "Wada inmersivo, preferir texto_neutro false; acento si hay mucho texto",
+   "patron": "uno con usos hero; opcional una banda",
+   "densidad": "baja",
+   "animacion": "el patrón del hero"
+  },
+  "dashboard": {
+   "para": "datos que se consultan seguido: métricas, tablas, estados",
+   "componentes": [
+    "dashboard",
+    "stat-card",
+    "chart",
+    "table",
+    "tabs",
+    "select",
+    "badge",
+    "menu",
+    "dialog",
+    "toast"
+   ],
+   "tipografia": "una neo-grotesca de rareza 1–2 (escuela clasica) para todo, con números tabulares; display solo en el nombre si acaso",
+   "color": "Wada acento, mejor de 2 colores; los colores de estado (éxito, error) no cuentan",
+   "patron": "ninguno, o una banda calma en la cabecera",
+   "densidad": "alta",
+   "animacion": "ninguna, o el primer dibujo del gráfico",
+   "limites": "hasta 4 métricas y 1–2 gráficos por vista"
+  },
+  "herramienta": {
+   "para": "una herramienta creativa de una pantalla, como Tipos o Patrones: vista previa + panel",
+   "componentes": [
+    "accordion",
+    "tabs",
+    "button",
+    "select",
+    "switch",
+    "text-field",
+    "tooltip",
+    "toast"
+   ],
+   "tipografia": "neo-grotesca de rareza 1–2 en la interfaz; la rareza va en lo que la herramienta produce",
+   "color": "Wada acento",
+   "patron": "opcional: fondo calmo detrás de la vista previa",
+   "densidad": "media",
+   "animacion": "el cambio de la vista previa"
+  },
+  "editorial": {
+   "para": "informe, portafolio, ensayo o caso: se lee de arriba abajo",
+   "componentes": [
+    "navbar",
+    "stats",
+    "card",
+    "accordion",
+    "footer"
+   ],
+   "tipografia": "display grande de rareza 3–4 (de autor o fraktur), texto de rareza 1–2 con buena lectura larga",
+   "color": "Wada inmersivo en bloques de color plano por capítulo",
+   "patron": "usos ilustración o banda entre capítulos",
+   "densidad": "media",
+   "animacion": "una entrada del titular",
+   "referencia": "stateofaidesign.com"
+  },
+  "poster": {
+   "para": "una pieza gráfica: póster, portada, invitación",
+   "componentes": [],
+   "tipografia": "un estilo de póster de Tipos (Casey, Musica Viva, Chicha…)",
+   "color": "una combinación de Wada",
+   "patron": "de Patrones, como imagen",
+   "densidad": "una idea"
+  }
+ },
+ "flujo": [
+  "1. Leer el proyecto: qué es, para quién, qué datos o contenido tiene.",
+  "2. Hacer las preguntas (abajo), en un solo mensaje.",
+  "3. Elegir la receta y proponer 2 o 3 direcciones: fuente de texto + display, combinación de Wada y modo, componentes, patrón; cada elección con su porqué.",
+  "4. Un agente crítico revisa cada dirección contra prohibido, que_es_bueno y oficio.",
+  "5. Alonso elige una (o corrige).",
+  "6. Escribir el sistema del proyecto dentro del proyecto: DESIGN.md con las decisiones y su porqué, y los <link>/<script> listos.",
+  "7. Construir con eso; el crítico revisa el resultado antes de entregarlo."
+ ],
+ "preguntas": [
+  "¿Qué es y para quién es? (tuyo, de un cliente, público interno)",
+  "¿Qué tiene que lograr la primera pantalla?",
+  "¿Qué tipo de pieza es? (landing, dashboard, herramienta, editorial, póster)",
+  "¿Qué tono? (sobrio, editorial, técnico, cálido, lúdico, urgente, experimental)",
+  "¿Cuánta rareza aceptas del 1 al 5?",
+  "¿Algún color, imagen o referencia de la que partir? (si no, elijo una combinación de Wada)",
+  "¿Idiomas? (por defecto español con inglés)",
+  "¿Algo que no quieras ver?"
+ ]
+}
