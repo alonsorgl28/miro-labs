@@ -1,213 +1,261 @@
 <!doctype html>
-<html lang="es" class="wada-147">
+<html lang="es" class="wada-322">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Sistema de diseño · MIRÓ Labs</title>
-  <meta name="description" content="Cuatro herramientas y un punto de vista para que un agente construya webs con autor: Componentes, Tipos, Sanzo Wada y Patrones.">
+  <meta name="description" content="Cuatro herramientas y un punto de vista para que un agente construya webs con criterio: Componentes, Tipos, Sanzo Wada y Patrones.">
   <link rel="alternate" type="text/plain" href="llms.txt" title="Guía para agentes">
   <link rel="alternate" type="application/json" href="miro.json" title="Índice del sistema">
   <script>(function(){try{var t=localStorage.getItem('miro-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark');}catch(e){}})();</script>
-  <!-- Esta página está hecha con el propio sistema: tokens de Componentes, tema 147 de Wada, fuentes de Tipos y patrones.js -->
+  <!-- Hecha con el propio sistema: tokens de Componentes, combinación 322 de Wada, Hanken Grotesk de Tipos y patrones.js -->
   <link rel="stylesheet" href="https://componentes-lovat.vercel.app/tokens.css">
-  <link rel="stylesheet" href="https://sanzo-wada-chi.vercel.app/temas/147.css">
+  <link rel="stylesheet" href="https://sanzo-wada-chi.vercel.app/temas/322.css">
   <link rel="stylesheet" href="https://tipos-wheat.vercel.app/fonts/css/hanken-grotesk.css">
   <link rel="stylesheet" href="https://tipos-wheat.vercel.app/fonts/css/sinistre.css">
-  <link rel="stylesheet" href="https://tipos-wheat.vercel.app/fonts/css/cantique.css">
   <script src="https://pattern-studio-rosy.vercel.app/patrones.js" defer></script>
   <style>
-    /* Retícula: columna de texto a la izquierda y una pieza a la derecha; filas con filetes, sin tarjetas iguales */
-    :root { --text: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif; --display: "Sinistre", Georgia, serif; --w: 1200px; --g: clamp(16px, 4vw, 32px); }
+    /* Retícula de 4 columnas con guías verticales visibles; mucho aire; titulares ligeros en dos tonos */
+    :root {
+      --w: 1120px; --g: clamp(16px, 4vw, 32px);
+      --text: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+      /* combinación 322 de Wada: el violeta es el primario; los otros tres solo en las líneas y las muestras */
+      --violet: #5A498C; --magenta: #AF5182; --rust: #963F29; --red: #CE252B;
+      --tint: color-mix(in srgb, var(--background), var(--violet) 4%);
+      --soft: var(--muted-foreground);
+    }
+    /* el tema 322 elige el rojo como primario; aquí se usa el violeta de la misma combinación */
+    :root.wada-322 { --primary: var(--violet); --primary-foreground: #ffffff; --ring: var(--violet); }
+    :root.dark.wada-322 { --primary: #9C8FD0; --primary-foreground: #141414; --violet: #9C8FD0; --ring: #9C8FD0; --tint: color-mix(in srgb, var(--background), #ffffff 3%); }
     * { box-sizing: border-box; }
     html { background: var(--background); }
-    body { margin: 0; background: var(--background); color: var(--foreground); font: 16px/1.6 var(--text); -webkit-font-smoothing: antialiased; }
+    body { margin: 0; background: var(--background); color: var(--foreground); font: 400 17px/1.6 var(--text); -webkit-font-smoothing: antialiased; }
     a { color: inherit; }
-    .wrap { max-width: var(--w); margin: 0 auto; padding-inline: var(--g); }
     :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+    .wrap { position: relative; max-width: var(--w); margin: 0 auto; padding-inline: var(--g); }
+    /* guías verticales de la retícula, como en Stripe */
+    .guides { position: absolute; inset: 0 var(--g); display: grid; grid-template-columns: repeat(4, 1fr); pointer-events: none; z-index: 0; }
+    .guides i { border-left: 1px dashed var(--border); }
+    .guides i:last-child { border-right: 1px dashed var(--border); }
+    .wrap > *:not(.guides) { position: relative; z-index: 1; }
 
-    .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--background) 88%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .bar .wrap { display: flex; align-items: center; gap: 16px; height: 56px; }
-    .brand { font-weight: 600; text-decoration: none; margin-right: auto; }
-    .brand span { color: var(--muted-foreground); font-weight: 400; }
-    .bar a:not(.brand) { font-size: 14px; color: var(--muted-foreground); text-decoration: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-    .bar a:not(.brand):hover { color: var(--foreground); }
-    .theme { width: 34px; height: 34px; border: 0; border-radius: 9px; background: none; color: var(--muted-foreground); cursor: pointer; }
+    nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--background) 85%, transparent); backdrop-filter: blur(14px); }
+    nav.top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
+    .logo { font-weight: 600; letter-spacing: -.01em; text-decoration: none; margin-right: auto; }
+    nav.top a:not(.logo):not(.pill) { font-size: 15px; font-weight: 500; text-decoration: none; color: var(--foreground); opacity: .8; }
+    nav.top a:not(.logo):not(.pill):hover { opacity: 1; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 16px; border-radius: 99px; background: var(--primary); color: var(--primary-foreground); font-size: 15px; font-weight: 600; text-decoration: none; }
+    .pill.ghost { background: transparent; color: var(--primary); padding: 0 4px; }
+    .pill:hover { filter: brightness(1.08); }
+    .theme { width: 34px; height: 34px; border: 0; border-radius: 99px; background: none; color: var(--soft); cursor: pointer; font-size: 15px; }
     .theme:hover { background: var(--accent); color: var(--foreground); }
 
-    /* hero: la combinación es la página */
-    .hero { padding-block: clamp(40px, 7vw, 88px); }
-    .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
-    .eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 18px; }
-    h1 { font-family: var(--display); font-weight: 700; font-size: clamp(44px, 7vw, 88px); line-height: .98; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
-    .lead { font-size: 19px; max-width: 34ch; margin: 22px 0 30px; text-wrap: pretty; }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    .btn { display: inline-flex; align-items: center; height: 42px; padding: 0 18px; border-radius: 10px; font-weight: 500; text-decoration: none; border: 1px solid var(--input); background: var(--popover); color: var(--foreground); }
-    .btn.primary { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
-    .btn:hover { filter: brightness(1.06); }
-    .piece { aspect-ratio: 4 / 5; width: 100%; max-width: 100%; }
-    .piece-cap { margin: 10px 0 0; font-size: 13px; color: var(--muted-foreground); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    /* hero: titular ligero en dos tonos y la banda de líneas finas que lo cruza */
+    .hero { position: relative; overflow: hidden; padding-block: clamp(56px, 9vw, 120px) clamp(48px, 7vw, 96px); }
+    #lines { position: absolute; right: 0; top: 0; width: 46%; height: 100%; display: block; pointer-events: none; }
+    h1 { font-weight: 300; font-size: clamp(42px, 6.4vw, 80px); line-height: 1.03; letter-spacing: -.035em; margin: 0; max-width: 13.5ch; text-wrap: balance; }
+    h1 span, h2 span { color: var(--soft); }
+    .lead { font-size: 20px; color: var(--soft); max-width: 46ch; margin: 28px 0 36px; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+    .pill.lg { height: 44px; padding: 0 22px; font-size: 16px; }
 
-    section { padding-block: clamp(48px, 7vw, 96px); }
-    h2 { font-family: var(--display); font-weight: 700; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.05; letter-spacing: -.015em; margin: 0 0 12px; text-wrap: balance; }
-    .intro { color: var(--muted-foreground); max-width: 60ch; margin: 0 0 36px; }
+    /* cifras */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); padding-block: 36px 56px; }
+    .stat { padding: 0 20px; border-left: 2px solid var(--primary); }
+    .stat:nth-child(n+2) { border-left-color: transparent; }
+    .stat b { display: block; font-weight: 300; font-size: clamp(34px, 4vw, 48px); letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+    .stat span { font-size: 15px; color: var(--soft); }
 
-    /* las cuatro herramientas: filas con filete, cada una con una muestra viva */
-    .tools { border-top: 1px solid var(--border); }
-    .tool { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr) minmax(0, 300px); gap: 24px 32px; align-items: center; padding-block: 28px; border-bottom: 1px solid var(--border); }
-    .tool h3 { font-family: var(--display); font-size: 30px; font-weight: 700; margin: 0; line-height: 1.1; }
-    .tool .count { display: block; font: 500 14px/1.4 var(--text); color: var(--muted-foreground); margin-top: 6px; font-variant-numeric: tabular-nums; }
-    .tool p { margin: 0 0 8px; max-width: 52ch; }
-    .tool .links { font-size: 14px; display: flex; gap: 16px; flex-wrap: wrap; }
-    .tool .links a { color: var(--primary); text-underline-offset: 3px; }
-    .sample { min-height: 96px; display: flex; align-items: center; }
-    .specimen { font-family: "Cantique", serif; font-size: 64px; line-height: 1; }
-    .swatches { display: flex; width: 100%; height: 72px; }
-    .swatches i { flex: 1; display: grid; align-content: end; padding: 8px; font: 11px/1.3 ui-monospace, Menlo, monospace; font-style: normal; }
-    .band { width: 100%; height: 96px; }
-    .ui-demo { display: flex; gap: 8px; flex-wrap: wrap; }
+    section { padding-block: clamp(64px, 9vw, 120px); }
+    section.tinted { background: var(--tint); }
+    .kicker { font: 600 15px/1.4 var(--text); color: var(--primary); margin: 0 0 14px; }
+    h2 { font-weight: 300; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 20px; max-width: 20ch; text-wrap: balance; }
+    .intro { color: var(--soft); max-width: 52ch; margin: 0 0 48px; font-size: 18px; }
+
+    /* herramientas: 2 × 2, cada una con una muestra viva */
+    .tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .tool { background: var(--background); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: grid; grid-template-rows: 200px auto; box-shadow: 0 1px 2px #0000000a, 0 8px 24px -12px #3c2a6a26; }
+    .tool .view { position: relative; display: grid; place-items: center; background: var(--tint); border-bottom: 1px solid var(--border); overflow: hidden; }
+    .tool .body { padding: 24px 26px 26px; }
+    .tool h3 { margin: 0 0 6px; font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+    .tool p { margin: 0 0 16px; color: var(--soft); font-size: 16px; }
+    .tool .links { display: flex; gap: 18px; font-size: 15px; font-weight: 600; }
+    .tool .links a { color: var(--primary); text-decoration: none; }
+    .tool .links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .specimen { font-family: "Sinistre", Georgia, serif; font-weight: 700; font-size: 72px; line-height: 1; letter-spacing: -.01em; }
+    .specimen small { display: block; font: 400 13px/1.4 var(--mono); color: var(--soft); text-align: center; margin-top: 8px; letter-spacing: 0; }
+    .sw { display: flex; width: 78%; height: 96px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 2px #0000001a; }
+    .sw i { flex: 1; }
+    .ui { display: flex; gap: 10px; }
+    .ui span { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; font-size: 15px; font-weight: 500; }
+    .ui .p { background: var(--primary); color: var(--primary-foreground); }
+    .ui .o { border: 1px solid var(--input); background: var(--background); }
+    .tool patron-fondo { position: absolute; inset: 28px 36px; } /* los patrones van con esquinas rectas */
 
     /* punto de vista */
-    .belief-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; border-top: 1px solid var(--border); }
-    .belief { padding-block: 22px; border-bottom: 1px solid var(--border); }
-    .belief b { display: block; font-size: 18px; margin-bottom: 4px; }
-    .belief span { color: var(--muted-foreground); }
-    .word { font-family: var(--display); font-size: clamp(28px, 3.4vw, 40px); margin: 0 0 32px; }
-    .word em { color: var(--primary); font-style: normal; }
+    .statement { font-weight: 300; font-size: clamp(26px, 3.2vw, 38px); line-height: 1.25; letter-spacing: -.02em; max-width: 30ch; margin: 0 0 56px; }
+    .statement span { color: var(--soft); }
+    .beliefs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 32px; }
+    .belief { border-left: 1px solid var(--border); padding-left: 18px; }
+    .belief b { display: block; font-weight: 600; margin-bottom: 6px; }
+    .belief span { color: var(--soft); font-size: 16px; }
 
-    /* flujo del agente: una secuencia real, por eso va numerada */
-    .hero .wrap > *, .flow > *, .tool > * { min-width: 0; }
-    .flow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+    /* cómo trabaja el agente */
+    .how { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 56px; align-items: start; }
+    .how > * { min-width: 0; }
     ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
-    ol.steps li { counter-increment: s; display: grid; grid-template-columns: 36px 1fr; gap: 8px; padding-block: 12px; border-bottom: 1px solid var(--border); }
-    ol.steps li::before { content: counter(s); font-family: var(--display); font-size: 22px; line-height: 1.2; color: var(--primary); font-variant-numeric: tabular-nums; }
-    pre { margin: 0; padding: 18px; border-radius: 12px; background: var(--muted); border: 1px solid var(--border); overflow-x: auto; font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
-    footer { padding-block: 40px 64px; border-top: 1px solid var(--border); color: var(--muted-foreground); font-size: 14px; }
+    ol.steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 6px; padding-block: 12px; }
+    ol.steps li::before { content: counter(s); font: 600 14px/1.9 var(--mono); color: var(--primary); font-variant-numeric: tabular-nums; }
+    .code { margin: 0; background: #1b1730; color: #e8e4f5; border-radius: 12px; padding: 22px 24px; overflow-x: auto; font: 13.5px/1.75 var(--mono); box-shadow: 0 20px 40px -20px #1b173080; }
+    .code .c { color: #8f88b3; } .code .t { color: #c7b8ff; } .code .s { color: #f2b8a0; }
+    footer { padding-block: 48px 72px; color: var(--soft); font-size: 15px; border-top: 1px solid var(--border); }
 
     @media (max-width: 860px) {
-      .hero .wrap, .flow { grid-template-columns: 1fr; }
-      .piece { aspect-ratio: 16 / 10; }
-      .tool { grid-template-columns: 1fr; gap: 12px; }
-      .belief-grid { grid-template-columns: 1fr; }
-      .bar a.hide-sm { display: none; }
-      .brand span { display: none; }
+      nav.top a.hide-sm { display: none; }
+      #lines { display: none; }
+      .stats { grid-template-columns: repeat(2, 1fr); gap: 28px 0; }
+      .stat:nth-child(3) { border-left-color: var(--primary); }
+      .tools, .how { grid-template-columns: 1fr; }
+      .beliefs { grid-template-columns: 1fr; }
+      .guides { grid-template-columns: repeat(2, 1fr); }
+      .guides i:nth-child(n+3) { display: none; }
+      .guides i:nth-child(2) { border-right: 1px dashed var(--border); }
     }
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
-  <header class="bar">
+  <nav class="top" aria-label="Principal">
     <div class="wrap">
-      <a class="brand" href="https://miro-labs.vercel.app">MIRÓ Labs <span>/ sistema de diseño</span></a>
-      <a href="miro.json">miro.json</a>
-      <a class="hide-sm" href="llms.txt">llms.txt</a>
+      <a class="logo" href="https://miro-labs.vercel.app">MIRÓ Labs</a>
+      <a class="hide-sm" href="https://tipos-wheat.vercel.app">Tipos</a>
+      <a class="hide-sm" href="https://sanzo-wada-chi.vercel.app">Wada</a>
+      <a class="hide-sm" href="https://componentes-lovat.vercel.app">Componentes</a>
+      <a class="hide-sm" href="https://pattern-studio-rosy.vercel.app">Patrones</a>
       <button class="theme" type="button" id="themeBtn" aria-label="Tema claro u oscuro">◐</button>
+      <a class="pill" href="miro.json">miro.json</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <canvas id="lines" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="guides" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <h1>Diseño con criterio, <span>para personas y agentes.</span></h1>
+      <p class="lead">Cuatro herramientas y un punto de vista. Un agente las lee, te pregunta y construye tu web con fuentes, colores, componentes y patrones elegidos con cuidado.</p>
+      <div class="actions">
+        <a class="pill lg" href="llms.txt">Leer la guía para agentes</a>
+        <a class="pill ghost" href="#como">Cómo funciona →</a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <div class="hero wada-147-inmersivo" style="background:var(--background);color:var(--foreground)">
-      <div class="wrap">
-        <div>
-          <p class="eyebrow">Sistema de diseño de MIRÓ Labs</p>
-          <h1>Lo raro, tratado con rigor.</h1>
-          <p class="lead">Cuatro herramientas y un punto de vista para que un agente construya webs con autor, no webs probables.</p>
-          <div class="actions">
-            <a class="btn primary" href="miro.json">Leer miro.json</a>
-            <a class="btn" href="llms.txt">Guía para agentes</a>
-          </div>
-        </div>
-        <div>
-          <patron-fondo class="piece" pattern="pebble" wada="147" seed="7" detail="2" role="img" aria-label="Patrón Pebble con los colores de la combinación 147 de Sanzo Wada"></patron-fondo>
-          <p class="piece-cap">Pebble · Wada 147 · Sinistre + Hanken Grotesk</p>
-        </div>
+  <div class="wrap">
+    <div class="guides" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="stats">
+      <div class="stat"><b>100</b><span>fuentes libres</span></div>
+      <div class="stat"><b>348</b><span>combinaciones de color</span></div>
+      <div class="stat"><b>33</b><span>componentes</span></div>
+      <div class="stat"><b>39</b><span>patrones generativos</span></div>
+    </div>
+  </div>
+
+  <section class="tinted">
+    <div class="wrap">
+      <p class="kicker">Las herramientas</p>
+      <h2>Cada una decide una cosa. <span>Juntas, un sistema.</span></h2>
+      <p class="intro">Comparten los mismos nombres de color, así que una combinación de Wada pinta los componentes, el patrón y la página entera.</p>
+      <div class="tools">
+        <article class="tool">
+          <div class="view"><div class="specimen" aria-label="Muestra de Sinistre">Aa<small>Sinistre · rareza 4</small></div></div>
+          <div class="body"><h3>Tipos</h3><p>La tipografía. Cada fuente dice su tono, su rareza del 1 al 5, si sirve para texto largo y con qué combina.</p>
+            <div class="links"><a href="https://tipos-wheat.vercel.app">Abrir</a><a href="https://tipos-wheat.vercel.app/llms.txt">Guía</a></div></div>
+        </article>
+        <article class="tool">
+          <div class="view"><div class="sw" role="img" aria-label="Combinación 322 de Sanzo Wada: Blue Violet, magenta, óxido y rojo"><i style="background:var(--violet)"></i><i style="background:var(--magenta)"></i><i style="background:var(--rust)"></i><i style="background:var(--red)"></i></div></div>
+          <div class="body"><h3>Sanzo Wada</h3><p>El color. Las 348 combinaciones del libro de 1933, cada una lista como tema web con el contraste medido.</p>
+            <div class="links"><a href="https://sanzo-wada-chi.vercel.app">Abrir</a><a href="https://sanzo-wada-chi.vercel.app/llms.txt">Guía</a></div></div>
+        </article>
+        <article class="tool">
+          <div class="view"><div class="ui" aria-hidden="true"><span class="p">Guardar</span><span class="o">Cancelar</span></div></div>
+          <div class="body"><h3>Componentes</h3><p>La estructura. Formularios, navegación, secciones de landing y tableros, cada uno con cuándo usarlo y cuándo no.</p>
+            <div class="links"><a href="https://componentes-lovat.vercel.app">Abrir</a><a href="https://componentes-lovat.vercel.app/llms.txt">Guía</a></div></div>
+        </article>
+        <article class="tool">
+          <div class="view"><patron-fondo pattern="arcade" wada="322" seed="5" role="img" aria-label="Patrón Arcade con la combinación 322"></patron-fondo></div>
+          <div class="body"><h3>Patrones</h3><p>La gráfica. 39 patrones que se dibujan en vivo, para un hero, una banda o un fondo, con los colores de la misma combinación.</p>
+            <div class="links"><a href="https://pattern-studio-rosy.vercel.app">Abrir</a><a href="https://pattern-studio-rosy.vercel.app/llms.txt">Guía</a></div></div>
+        </article>
       </div>
     </div>
+  </section>
 
-    <section>
-      <div class="wrap">
-        <h2>Cuatro herramientas, un sistema</h2>
-        <p class="intro">Cada una decide una cosa y comparte con las otras los mismos nombres de color. Un agente lee el índice, elige una receta y pide a cada herramienta solo lo que necesita.</p>
-        <div class="tools">
-          <div class="tool">
-            <div><h3>Tipos</h3><span class="count">100 fuentes libres en 11 escuelas</span></div>
-            <div>
-              <p>Decide la tipografía: una fuente de texto y, como mucho, una display. Cada fuente dice su tono, su rareza del 1 al 5, si sirve para texto corrido y con qué combina.</p>
-              <div class="links"><a href="https://tipos-wheat.vercel.app">Abrir</a><a href="https://tipos-wheat.vercel.app/llms.txt">Guía</a><a href="https://tipos-wheat.vercel.app/fonts/catalog.json">Catálogo</a></div>
-            </div>
-            <div class="sample"><span class="specimen" aria-label="Muestra de la fuente Cantique">Ñandú</span></div>
-          </div>
-          <div class="tool">
-            <div><h3>Sanzo Wada</h3><span class="count">348 combinaciones de 1933–34</span></div>
-            <div>
-              <p>Decide el color. Cada combinación del libro de Wada es un tema web, en modo acento o inmersivo, con el contraste de cada texto medido.</p>
-              <div class="links"><a href="https://sanzo-wada-chi.vercel.app">Abrir</a><a href="https://sanzo-wada-chi.vercel.app/llms.txt">Guía</a><a href="https://sanzo-wada-chi.vercel.app/temas/147.css">Tema 147</a></div>
-            </div>
-            <div class="sample"><div class="swatches" role="img" aria-label="Combinación 147: Turquoise Green, Vandyke Red y Spinel Red"><i style="background:#B3DAC3;color:#6C2524">B3DAC3</i><i style="background:#6C2524;color:#B3DAC3">6C2524</i><i style="background:#E36A87;color:#2b0e14">E36A87</i></div></div>
-          </div>
-          <div class="tool">
-            <div><h3>Componentes</h3><span class="count">33 piezas: interfaz, landing y tableros</span></div>
-            <div>
-              <p>Decide la estructura: formularios, navegación, secciones de landing y bloques de dashboard. Cada pieza dice para qué contexto sirve, su densidad y cuándo no usarla.</p>
-              <div class="links"><a href="https://componentes-lovat.vercel.app">Abrir</a><a href="https://componentes-lovat.vercel.app/llms.txt">Guía</a><a href="https://componentes-lovat.vercel.app/components.json">Catálogo</a></div>
-            </div>
-            <div class="sample ui-demo"><a class="btn primary" href="https://componentes-lovat.vercel.app/c/button">Guardar</a><a class="btn" href="https://componentes-lovat.vercel.app/c/button">Cancelar</a></div>
-          </div>
-          <div class="tool">
-            <div><h3>Patrones</h3><span class="count">39 patrones generativos</span></div>
-            <div>
-              <p>Decide la gráfica: un patrón para el hero, una banda, un fondo o una textura, dibujado en vivo con patrones.js y los colores de la misma combinación.</p>
-              <div class="links"><a href="https://pattern-studio-rosy.vercel.app">Abrir</a><a href="https://pattern-studio-rosy.vercel.app/llms.txt">Guía</a><a href="https://pattern-studio-rosy.vercel.app/catalogo.json">Catálogo</a></div>
-            </div>
-            <div class="sample"><patron-fondo class="band" pattern="arcade" wada="147" seed="3" role="img" aria-label="Patrón Arcade como banda"></patron-fondo></div>
-          </div>
-        </div>
+  <section>
+    <div class="wrap">
+      <p class="kicker">Punto de vista</p>
+      <p class="statement">Curiosidad: lo raro tratado con rigor. <span>Una pieza con carácter sobre una base clásica y legible, y nunca dos rarezas compitiendo.</span></p>
+      <div class="beliefs">
+        <div class="belief"><b>El color se toma</b><span>De una combinación de Wada o de la imagen del proyecto. Nunca inventado.</span></div>
+        <div class="belief"><b>Se diseña el sistema</b><span>Reglas que generan variantes, como Gerstner y Casey.</span></div>
+        <div class="belief"><b>Una idea por pantalla</b><span>Poca información a la vista y un solo protagonista.</span></div>
+        <div class="belief"><b>Hecho por alguien</b><span>Cada web tiene un detalle que solo existe en su tema.</span></div>
+        <div class="belief"><b>Para todo el mundo</b><span>Contraste 4,5:1, teclado, lector de pantalla y celular.</span></div>
+        <div class="belief"><b>Un solo momento</b><span>Una animación por página, y nada que distraiga de lo importante.</span></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <div class="wrap">
-        <h2>Punto de vista</h2>
-        <p class="word">Nuestra palabra es <em>curiosidad</em>: lo raro tratado con rigor.</p>
-        <div class="belief-grid">
-          <div class="belief"><b>Lo raro, sobre una base clásica</b><span>Una pieza rara al lado de una neo-grotesca legible y una retícula seria. Nunca dos rarezas compitiendo.</span></div>
-          <div class="belief"><b>El color se toma, no se inventa</b><span>De una combinación de Sanzo Wada o de la imagen del proyecto. Color plano.</span></div>
-          <div class="belief"><b>Se diseña el sistema, no la pantalla</b><span>Reglas que generan variantes, como Gerstner y Casey.</span></div>
-          <div class="belief"><b>Una idea por pantalla</b><span>Poca información a la vista y un solo protagonista.</span></div>
-          <div class="belief"><b>Hecho por alguien</b><span>Cada web tiene un detalle que solo existe en su tema.</span></div>
-          <div class="belief"><b>Que lo pueda usar todo el mundo</b><span>Contraste 4,5:1, teclado, lector de pantalla y celular.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap flow">
-        <div>
-          <h2>Cómo lo usa un agente</h2>
-          <p class="intro">Le das el concepto y el proyecto. Él pregunta, propone, otro agente critica y tú eliges.</p>
-          <pre>&lt;html class="wada-147"&gt;
-&lt;link rel="stylesheet" href="https://componentes-lovat.vercel.app/tokens.css"&gt;
-&lt;link rel="stylesheet" href="https://sanzo-wada-chi.vercel.app/temas/147.css"&gt;
-&lt;link rel="stylesheet" href="https://tipos-wheat.vercel.app/fonts/css/sinistre.css"&gt;
-&lt;script src="https://pattern-studio-rosy.vercel.app/patrones.js"&gt;&lt;/script&gt;
-&lt;patron-fondo pattern="pebble" wada="147"&gt;&lt;/patron-fondo&gt;</pre>
-        </div>
+  <section class="tinted" id="como">
+    <div class="wrap how">
+      <div>
+        <p class="kicker">Cómo funciona</p>
+        <h2>Le das el concepto. <span>Él pregunta, propone y otro agente critica.</span></h2>
         <ol class="steps">
-          <li>Lee el proyecto: qué es, para quién, qué contenido o datos tiene.</li>
-          <li>Te hace las preguntas en un solo mensaje: tono, rareza, idioma, referencias.</li>
-          <li>Elige la receta (landing, dashboard, herramienta, editorial o póster) y propone 2 o 3 direcciones con su porqué.</li>
-          <li>Un agente crítico las revisa contra lo prohibido, lo que es bueno y el oficio.</li>
-          <li>Tú eliges una, o la corriges.</li>
-          <li>Escribe el sistema del proyecto dentro del proyecto: un DESIGN.md con las decisiones.</li>
-          <li>Construye, y el crítico revisa el resultado antes de entregarlo.</li>
+          <li>Lee tu proyecto: qué es, para quién y qué contenido tiene.</li>
+          <li>Te hace las preguntas en un solo mensaje.</li>
+          <li>Propone 2 o 3 direcciones renderizadas, con el porqué de cada elección.</li>
+          <li>Un agente crítico las revisa contra el punto de vista.</li>
+          <li>Tú eliges y escribe el DESIGN.md de tu proyecto.</li>
+          <li>Construye, y el crítico revisa el resultado.</li>
         </ol>
       </div>
-    </section>
-  </main>
+      <pre class="code"><span class="c">&lt;!-- una página hecha con el sistema --&gt;</span>
+&lt;<span class="t">html</span> class=<span class="s">"wada-322"</span>&gt;
+&lt;<span class="t">link</span> rel=<span class="s">"stylesheet"</span> href=<span class="s">"…componentes…/tokens.css"</span>&gt;
+&lt;<span class="t">link</span> rel=<span class="s">"stylesheet"</span> href=<span class="s">"…sanzo-wada…/temas/322.css"</span>&gt;
+&lt;<span class="t">link</span> rel=<span class="s">"stylesheet"</span> href=<span class="s">"…tipos…/fonts/css/hanken-grotesk.css"</span>&gt;
+&lt;<span class="t">script</span> src=<span class="s">"…pattern-studio…/patrones.js"</span>&gt;&lt;/<span class="t">script</span>&gt;
+
+&lt;<span class="t">patron-fondo</span> pattern=<span class="s">"arcade"</span> wada=<span class="s">"322"</span>&gt;
+  &lt;<span class="t">h1</span>&gt;Tu proyecto&lt;/<span class="t">h1</span>&gt;
+&lt;/<span class="t">patron-fondo</span>&gt;</pre>
+    </div>
+  </section>
 
   <footer>
-    <div class="wrap">Curado por Alonso Rivera · MIRÓ Labs · 2026. Esta página usa el propio sistema: tema 147 de Wada, Sinistre y Hanken Grotesk de Tipos, tokens de Componentes y dos patrones.</div>
+    <div class="wrap">Curado por Alonso Rivera · MIRÓ Labs · 2026 · <a href="miro.json">miro.json</a> · <a href="llms.txt">llms.txt</a></div>
   </footer>
+
   <script>
+    // Líneas finas paralelas con los cuatro colores de la combinación: la versión sin degradado de la cinta de Stripe.
+    (function () {
+      var cv = document.getElementById('lines'), g = cv.getContext('2d');
+      var cols = ['#5A498C', '#AF5182', '#CE252B', '#963F29', '#AF5182', '#5A498C'];
+      function draw() {
+        var r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
+        cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr);
+        // una banda que entra por abajo y sale por arriba a la derecha, sin tocar el texto
+        var W = cv.width, H = cv.height, n = 64, band = W * 0.62, step = band / n, lw = Math.max(1, step * 0.28);
+        g.clearRect(0, 0, W, H); g.lineWidth = lw; g.lineCap = 'butt';
+        for (var i = 0; i < n; i++) {
+          var t = i / (n - 1), k = Math.min(cols.length - 1, Math.floor(t * cols.length));
+          var x0 = W * 0.18 + i * step, x1 = W * 0.42 + i * step * 0.95;
+          g.strokeStyle = cols[k];
+          g.beginPath(); g.moveTo(x0, H); g.bezierCurveTo(x0 + W * 0.02, H * 0.55, x1 - W * 0.12, H * 0.35, x1 + W * 0.05, 0); g.stroke();
+        }
+      }
+      draw(); var to; addEventListener('resize', function () { clearTimeout(to); to = setTimeout(draw, 120); });
+    })();
     document.getElementById('themeBtn').addEventListener('click', function () {
       var dark = document.documentElement.classList.toggle('dark');
       try { localStorage.setItem('miro-theme', dark ? 'dark' : 'light'); } catch (e) { /* sin almacenamiento */ }
