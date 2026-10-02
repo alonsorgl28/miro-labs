@@ -25,6 +25,12 @@ GLYPHS = {
 <rect x="24" y="128" width="88" height="88" rx="20" fill="currentColor" opacity=".72"/>
 <rect x="128" y="128" width="88" height="88" rx="20" fill="currentColor"/>
 </svg>''',
+"infinite-canvas": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<g fill="currentColor" opacity=".28"><circle cx="24" cy="24" r="5"/><circle cx="72" cy="24" r="5"/><circle cx="120" cy="24" r="5"/><circle cx="168" cy="24" r="5"/><circle cx="216" cy="24" r="5"/><circle cx="24" cy="216" r="5"/><circle cx="72" cy="216" r="5"/><circle cx="120" cy="216" r="5"/><circle cx="168" cy="216" r="5"/><circle cx="216" cy="216" r="5"/></g>
+<rect x="24" y="56" width="110" height="128" rx="6" fill="currentColor"/>
+<rect x="150" y="56" width="66" height="58" rx="6" fill="currentColor" opacity=".72"/>
+<rect x="150" y="126" width="66" height="58" rx="6" fill="currentColor" opacity=".46"/>
+</svg>''',
 "all-the-books": '''<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
 <rect x="28" y="74" width="24" height="130" rx="4" fill="currentColor"/>
 <rect x="58" y="44" width="24" height="160" rx="4" fill="currentColor"/>
@@ -157,6 +163,10 @@ PROJECTS = [
       href="https://componentes-lovat.vercel.app",
       lead="The components and page sections you reach for when building a website, rebuilt without dependencies so you can try them live and copy them.",
       body="Buttons, fields, menus, dialogs and tables, plus ten page sections from hero to footer, with the design of coss ui and Tailark translated into plain HTML, CSS and JavaScript. Each one is built on the browser's own elements, so it works with the keyboard, screen readers and AI agents, in light and dark. Every page has a live preview, the code by file or in one piece, and a version for agents."),
+    dict(id="infinite-canvas", name="Infinite Canvas", tag="Design",
+      href="https://infinite-canvas-blush-three.vercel.app",
+      lead="An infinite canvas for building websites from real parts: drag in components, color themes, fonts and patterns, edit them in place, and ask an agent for four directions at once.",
+      body="Every piece comes from the other tools here: components that work, Sanzo Wada themes, free fonts from Type and patterns from Patterns. Double-click any text to rewrite it, right-click to hide a part. The agent proposes four variants the way Midjourney does, then varies the one you pick, subtly or strongly, and each artboard carries a style code you can paste onto another. It also reads your references and writes down your taste. The canvas exports a recipe an agent can build from. The agent runs on your own machine through Claude Code."),
  dict(id="all-the-books", name="All the Books in the World", tag="Essays",
       href="https://alonsorivera.vercel.app/all-the-books-in-the-world/",
       lead="An essay on how Anthropic and OpenAI got the millions of books behind their AI, and why a court said destroying them helped make it legal.",
